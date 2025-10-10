@@ -59,6 +59,14 @@
         padding: 10px;
       }
     }
+
+    /* Custom CSS for 5 speakers per row on normal browsers */
+    @media (min-width: 768px) {
+      #speakers .speaker-col-5 {
+        flex: 0 0 20%;
+        max-width: 20%;
+      }
+    }
   </style>
   <!-- =======================================================
   * Template Name: TheEvent
@@ -480,7 +488,7 @@
           <h2>Speakers</h2>
         </div>
         <div class="row">
-          <div class="col-md-3 col-sm-4 col-6">
+          <div class="speaker-col-5 col-sm-4 col-6">
             <div class="speaker" data-aos="fade-up" data-aos-delay="200" style="text-align: center;">
               <img src="assets/img/organizers/speaker/yilundu.png" alt="Yilun Du" class="img-fluid">
               <br><a href="https://yilundu.github.io/" style="font-size: 1.2em; color: #00356B;">Yilun Du</a></br>
@@ -488,7 +496,7 @@
             </div>
           </div>
 
-          <div class="col-md-3 col-sm-4 col-6">
+          <div class="speaker-col-5 col-sm-4 col-6">
             <div class="speaker" data-aos="fade-up" data-aos-delay="200" style="text-align: center;">
               <img src="assets/img/organizers/speaker/ziwei.png" alt="Ziwei Liu" class="img-fluid">
               <br><a href="https://liuziwei7.github.io/" style="font-size: 1.2em; color: #00356B;">Ziwei Liu</a></br>
@@ -496,7 +504,7 @@
             </div>
           </div>
 
-          <div class="col-md-3 col-sm-4 col-6">
+          <div class="speaker-col-5 col-sm-4 col-6">
             <div class="speaker" data-aos="fade-up" data-aos-delay="200" style="text-align: center;">
               <img src="assets/img/organizers/speaker/Kangfu_DR.jpg" alt="Kangfu Mei" class="img-fluid">
               <br><a href="https://kfmei.com/" style="font-size: 1.2em; color: #00356B;">Kang-Fu Mei</a></br>
@@ -504,11 +512,19 @@
             </div>
           </div>
 
-          <div class="col-md-3 col-sm-4 col-6">
+          <div class="speaker-col-5 col-sm-4 col-6">
             <div class="speaker" data-aos="fade-up" data-aos-delay="200" style="text-align: center;">
               <img src="assets/img/organizers/speaker/david.jpg" alt="David Fan" class="img-fluid">
               <br><a href="https://davidfan.io/" style="font-size: 1.2em; color: #00356B;">David Fan</a></br>
               <p>Meta FAIR</p>
+            </div>
+          </div>
+
+          <div class="speaker-col-5 col-sm-4 col-6">
+            <div class="speaker" data-aos="fade-up" data-aos-delay="200" style="text-align: center;">
+              <img src="assets/img/organizers/speaker/yongming.png" alt="Yongming Rao" class="img-fluid">
+              <br><a href="https://davidfan.io/" style="font-size: 1.2em; color: #00356B;">Yongming Rao</a></br>
+              <p>Tencent Hunyuan</p>
             </div>
           </div>
         </div>
