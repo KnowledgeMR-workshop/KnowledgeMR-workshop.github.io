@@ -143,168 +143,127 @@
     </section>
     <!-- End About Section -->
 
-    <!-- ======= Schedule Section ======= -->
-<!-- <section id="schedule" style="padding-top: 20px;">
-  <div class="container" data-aos="fade-up">
-    <div class="section-header">
-      <h2>Schedule</h2>
+  <section id="schedule" style="padding-top: 20px;">
+    <div class="container" data-aos="fade-up">
+      <div class="section-header">
+        <h2>Schedule</h2>
+      </div>
+
+      <style>
+        /* keep time on a single line */
+        .schedule-table td.time,
+        .schedule-table th:first-child {
+          white-space: nowrap;
+        }
+        /* distinct background colours for special rows with higher specificity */
+        .schedule-table tr.opening-row td {
+          background-color: #fff3cd80 !important; /* light grey */
+        }
+        .schedule-table tr.break-row td {
+          background-color: #fff3cd80 !important; /* soft yellow */
+        }
+        .schedule-table tr.poster-row td {
+          background-color: #fff3cd80 !important; /* soft cyan */
+        }
+        .schedule-table tr.closing-row td {
+          background-color: #fff3cd80 !important; /* soft pink */
+        }
+      </style>
+
+      <div class="table-responsive">
+        <table class="schedule-table table align-middle">
+          <thead>
+            <tr>
+              <th>Time&nbsp;(HST)</th>
+              <th>Session</th>
+              <th>Speaker</th>
+              <th>Talk&nbsp;Title</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="opening-row">
+              <td class="time">1:00 – 1:10</td>
+              <td colspan="3">Opening Remarks</td>
+            </tr>
+
+            <tr>
+              <td class="time">1:10 – 1:40</td>
+              <td>Invited Talk&nbsp;1</td>
+              <td>Yilun Du (Harvard)</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td class="time">1:40 – 2:10</td>
+              <td>Invited Talk&nbsp;2</td>
+              <td>Kang-Fu Mei (Google DeepMind)</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td class="time">2:10 – 2:20</td>
+              <td>Oral Paper 1</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td class="time">2:20 – 2:30</td>
+              <td>Oral Paper 2</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td class="time">2:30 – 2:40</td>
+              <td>Oral Paper 3</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr class="poster-row">
+              <td class="time">2:40 – 3:30</td>
+              <td colspan="3">Poster Session</td>
+            </tr>
+            <tr>
+              <td class="time">3:30 – 4:00</td>
+              <td>Invited Talk&nbsp;3</td>
+              <td>Ziwei Liu (NTU)</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td class="time">4:00 – 4:30</td>
+              <td>Invited Talk&nbsp;4</td>
+              <td>David Fan (Meta FAIR)</td>
+              <td></td>
+            </tr>
+            <tr class="break-row">
+              <td class="time">4:30 – 4:40</td>
+              <td colspan="3">Short break</td>
+            </tr>
+            <tr>
+              <td class="time">4:40 – 4:50</td>
+              <td>Oral Paper 4</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td class="time">4:50 – 5:20</td>
+              <td>Invited Talk&nbsp;5</td>
+              <td>Yongming Rao (Tencent Hunyuan)</td>
+              <td>Interactive Multi-Modal Reasoning with Thinking-on-Image Reasoning</td>
+            </tr>
+            <tr>
+              <td class="time">5:20 – 5:50</td>
+              <td>Panel Session</td>
+              <td></td>
+              <td></td>
+            </tr>
+            <tr class="closing-row">
+              <td class="time">5:50 – 6:00</td>
+              <td colspan="3">Paper Award &amp; Closing Remarks</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
-    <p>
-      Coming Soon
-    </p> -->
-    <!--
-    <style>
-      /* keep time on a single line */
-      .schedule-table td.time,
-      .schedule-table th:first-child {
-        white-space: nowrap;
-      }
-      /* distinct background colours for special rows with higher specificity */
-      .schedule-table tr.opening-row td {
-        background-color: #fff3cd80 !important; /* light grey */
-      }
-      .schedule-table tr.break-row td {
-        background-color: #fff3cd80 !important; /* soft yellow */
-      }
-      .schedule-table tr.poster-row td {
-        background-color: #fff3cd80 !important; /* soft cyan */
-      }
-      .schedule-table tr.closing-row td {
-        background-color: #fff3cd80 !important; /* soft pink */
-      }
-    </style>
+  </section>
 
-    <div class="table-responsive">
-      <table class="schedule-table table align-middle">
-        <thead>
-          <tr>
-            <th>Time&nbsp;(SGT)</th>
-            <th>Session</th>
-            <th>Speaker</th>
-            <th>Talk&nbsp;Title</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr class="opening-row">
-            <td class="time">08:30 – 08:40</td>
-            <td colspan="3">Introduction and Opening Remarks</td>
-          </tr>
-
-          <tr>
-            <td class="time">08:40 – 09:10</td>
-            <td>Invited Talk&nbsp;1</td>
-            <td>Yuandong Tian (Meta)</td>
-            <td>Reason by Search or by Representation? A Path Towards Unifying Neural and Symbolic Decision Making</td>
-          </tr>
-          <tr>
-            <td class="time">09:10 – 09:40</td>
-            <td>Invited Talk&nbsp;2</td>
-            <td>Guy Van den Broeck (UCLA)</td>
-            <td>Symbolic Reasoning about Large Language Models</td>
-          </tr>
-          <tr class="break-row">
-            <td class="time">09:40 – 09:50</td>
-            <td colspan="3">Tea Break</td>
-          </tr>
-          <tr>
-            <td class="time">09:50 – 10:20</td>
-            <td>Invited Talk&nbsp;3</td>
-            <td>Yarin Gal (Oxford)</td>
-            <td>AI models collapse when trained on recursively generated data</td>
-          </tr>
-          <tr>
-            <td class="time">10:20 – 10:50</td>
-            <td>Invited Talk&nbsp;4</td>
-            <td>Natasha Jaques (UW &amp; Google DeepMind)</td>
-            <td>Social Reasoning for Large Language Models</td>
-          </tr>
-          <tr>
-            <td class="time">10:50 – 11:50</td>
-            <td>Panel Discussion</td>
-            <td>All Speakers (Yuandong, Junxian, Yarin, Bo)</td>
-            <td></td>
-          </tr>
-          <tr class="poster-row">
-            <td class="time">12:00 – 13:30</td>
-            <td colspan="3">Poster Session&nbsp;1 and Lunch Break</td>
-          </tr>
-          <tr>
-            <td class="time">13:45 – 14:15</td>
-            <td>Invited Talk&nbsp;5</td>
-            <td>Stephen McAleer (OpenAI)</td>
-            <td>Toward Capable and Safe Virtual Agents</td>
-          </tr>
-          <tr>
-            <td class="time">14:15 – 14:25</td>
-            <td>Oral Paper 1</td>
-            <td>Yuyang Wu</td>
-            <td>When More is Less: Understanding Chain-of-Thought Length in LLMs</td>
-          </tr>
-          <tr>
-            <td class="time">14:25 – 14:35</td>
-            <td>Oral Paper 2</td>
-            <td>Yu-Ting Lee & Hui-Ting Shih</td>
-            <td>RL-STaR: Theoretical Analysis of Reinforcement Learning Frameworks for Self-Taught Reasoner</td>
-          </tr>
-          <tr>
-            <td class="time">14:35 – 14:45</td>
-            <td>Oral Paper 3</td>
-            <td>Harshita Chopra</td>
-            <td>Feedback-Aware Monte Carlo Tree Search for Efficient Information Seeking in Goal-Oriented Conversations</td>
-          </tr>
-          <tr>
-            <td class="time">14:45 – 14:55</td>
-            <td>Oral Paper 4</td>
-            <td>Hanze Dong</td>
-            <td>Offline Reinforcement Learning for LLM Multi-Step Reasoning</td>
-          </tr>
-          <tr class="poster-row">
-            <td class="time">14:55 – 16:00</td>
-            <td colspan="3">Poster Session&nbsp;2</td>
-          </tr>
-          <tr>
-            <td class="time">16:00 – 16:30</td>
-            <td>Invited Talk&nbsp;6</td>
-            <td>Bo An (NTU)</td>
-            <td>From Algorithmic and RL-based to LLM-powered Agents</td>
-          </tr>
-          <tr>
-            <td class="time">16:30 – 17:00</td>
-            <td>Invited Talk&nbsp;7</td>
-            <td>Junxian He (HKUST)</td>
-            <td>Taming Reinforcement Learning for Effective and Efficient Reasoners</td>
-          </tr>
-          <tr>
-            <td class="time">17:00 – 17:10</td>
-            <td>Oral Paper 5</td>
-            <td>Yunchao Hao</td>
-            <td>Rethinking Fine-tuning when Scaling Test-Time Compute: Limiting Confidence Improves Mathematical Reasoning</td>
-          </tr>
-          <tr>
-            <td class="time">17:10 – 17:20</td>
-            <td>Oral Paper 6</td>
-            <td>Anikait Singh</td>
-            <td>Improving Test-Time Search for LLMs with Backtracking Against In-Context Value Verifiers</td>
-          </tr>
-          <tr>
-            <td class="time">17:20 – 17:30</td>
-            <td>Oral Paper 7</td>
-            <td>Niklas Muennighoff</td>
-            <td>s1: Simple Test-Time Scaling</td>
-          </tr>
-          <tr class="closing-row">
-            <td class="time">17:30 – 17:40</td>
-            <td colspan="3">Paper Award &amp; Closing Remarks</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    -->
-  <!-- </div>
-</section> -->
-
-
-    <!-- End Schedule Section -->
 
     <!-- ======= Topics Section ======= -->
     <section id="topic" class="section-with-bg">
