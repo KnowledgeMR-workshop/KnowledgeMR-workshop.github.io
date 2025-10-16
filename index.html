@@ -198,8 +198,8 @@
               <tr>
                 <td class="time">1:10 – 1:40</td>
                 <td>Invited Talk&nbsp;1</td>
-                <td>Yilun Du (Harvard)</td>
-                <td></td>
+                <td>Yongming Rao (Tencent Hunyuan)</td>
+                <td>Interactive Multi-Modal Reasoning with Thinking-on-Image Reasoning</td>
               </tr>
               <tr>
                 <td class="time">1:40 – 2:10</td>
@@ -254,8 +254,8 @@
               <tr>
                 <td class="time">4:50 – 5:20</td>
                 <td>Invited Talk&nbsp;5</td>
-                <td>Yongming Rao (Tencent Hunyuan)</td>
-                <td>Interactive Multi-Modal Reasoning with Thinking-on-Image Reasoning</td>
+                <td>Yilun Du (Harvard)</td>
+                <td></td>
               </tr>
               <tr>
                 <td class="time">5:20 – 5:50</td>
@@ -399,22 +399,13 @@
     <!-- End CFP -->
 
     <!-- ======= Accepted Papers ======= -->
-    <br><br>
-    <section id="accepted-paper">
+    <section id="accepted-paper" class="section-with-bg">
       <div class="container" data-aos="fade-up">
-        <div class="mb-3" style="border: 1px solid #ddd; border-radius: 5px;">
-          <div
-            style="background-color: #e2eeff; padding: 10px; cursor: pointer; font-weight: 500; display: flex; justify-content: space-between; align-items: center;"
-            data-bs-toggle="collapse" data-bs-target="#poster-presentations" aria-expanded="false"
-            aria-controls="poster-presentations" id="acceptedPapersToggle">
-            <span>Accepted Papers</span>
-            <i class="bi bi-chevron-down"></i>
-          </div>
-          <div class="collapse" id="poster-presentations">
-            <div style="padding: 15px;">
-              <ul id="posterList" style="margin-bottom: 0;"></ul>
-            </div>
-          </div>
+        <div class="section-header">
+          <h2>Accepted Papers</h2>
+        </div>
+        <div id="poster-presentations">
+          <ul id="posterList"></ul>
         </div>
       </div>
     </section>
@@ -465,7 +456,7 @@
     <section id="speakers" class="section-with-bg">
       <div class="container" data-aos="fade-up">
         <div class="section-header">
-          <h2>Speakers</h2>
+          <h2>Speakers and Panelists</h2>
         </div>
         <div class="row">
           <div class="speaker-col-5 col-sm-4 col-6">
@@ -510,6 +501,33 @@
                    loading="lazy" decoding="async" width="320" height="320" style="height:auto">
               <br><a href="https://raoyongming.github.io/" style="font-size: 1.2em; color: #00356B;">Yongming Rao</a></br>
               <p>Tencent Hunyuan</p>
+            </div>
+          </div>
+
+          <div class="speaker-col-5 col-sm-4 col-6">
+            <div class="speaker" data-aos="fade-up" data-aos-delay="200" style="text-align: center;">
+              <img src="assets/img/organizers/speaker/ranjay.jpeg" alt="Ranjay Krishna" class="img-fluid"
+                   loading="lazy" decoding="async" width="320" height="320" style="height:auto">
+              <br><a href="https://www.ranjaykrishna.com/" style="font-size: 1.2em; color: #00356B;">Ranjay Krishna</a></br>
+              <p>UW & AI2</p>
+            </div>
+          </div>
+
+          <div class="speaker-col-5 col-sm-4 col-6">
+            <div class="speaker" data-aos="fade-up" data-aos-delay="200" style="text-align: center;">
+              <img src="assets/img/organizers/faculty/manling.jpg" alt="Manling Li" class="img-fluid"
+                   loading="lazy" decoding="async" width="320" height="320" style="height:auto">
+              <br><a href="https://limanling.github.io/" style="font-size: 1.2em; color: #00356B;">Manling Li</a></br>
+              <p>Northwestern</p>
+            </div>
+          </div>
+
+          <div class="speaker-col-5 col-sm-4 col-6">
+            <div class="speaker" data-aos="fade-up" data-aos-delay="200" style="text-align: center;">
+              <img src="assets/img/organizers/faculty/arman.jpg" alt="Arman Cohan" class="img-fluid"
+                   loading="lazy" decoding="async" width="320" height="320" style="height:auto">
+              <br><a href="https://armancohan.com/" style="font-size: 1.2em; color: #00356B;">Arman Cohan</a></br>
+              <p>Yale</p>
             </div>
           </div>
         </div>
@@ -731,36 +749,30 @@
   <!-- Template Main JS File -->
   <script src="assets/js/main.js" defer></script>
 
-  <!-- ======= Accepted Papers: lazy fetch only when expanded ======= -->
+  <!-- ======= Accepted Papers: load on page load ======= -->
   <script>
-    // English comments: Lazy-load accepted_paper.json when the section is expanded
+    // Load accepted_paper.json when the page loads
     document.addEventListener('DOMContentLoaded', function () {
-      const toggle = document.getElementById('acceptedPapersToggle');
       const list = document.getElementById('posterList');
-      if (!toggle || !list) return;
+      if (!list) return;
 
-      let loaded = false;
-      toggle.addEventListener('click', function () {
-        if (loaded) return;
-        fetch('accepted_paper.json')
-          .then(function (r) { return r.json(); })
-          .then(function (data) {
-            const notes = (data && data.notes) ? data.notes : [];
-            notes.forEach(function (item) {
-              const title = item && item.content && item.content.title ? (item.content.title.value || 'Untitled') : 'Untitled';
-              const authorsVal = item && item.content && item.content.authors ? item.content.authors.value : [];
-              const authors = Array.isArray(authorsVal) ? authorsVal.join(', ') : (authorsVal || '');
-              const li = document.createElement('li');
-              li.innerHTML = '<b>' + title + '</b><br>Authors: ' + authors;
-              list.appendChild(li);
-              list.appendChild(document.createElement('br'));
-            });
-            loaded = true;
-          })
-          .catch(function (err) {
-            console.error('Error loading accepted_paper.json:', err);
+      fetch('accepted_paper.json')
+        .then(function (r) { return r.json(); })
+        .then(function (data) {
+          const notes = (data && data.notes) ? data.notes : [];
+          notes.forEach(function (item) {
+            const title = item && item.content && item.content.title ? (item.content.title.value || 'Untitled') : 'Untitled';
+            const authorsVal = item && item.content && item.content.authors ? item.content.authors.value : [];
+            const authors = Array.isArray(authorsVal) ? authorsVal.join(', ') : (authorsVal || '');
+            const li = document.createElement('li');
+            li.innerHTML = '<b>' + title + '</b><br>' + authors;
+            list.appendChild(li);
+            list.appendChild(document.createElement('br'));
           });
-      });
+        })
+        .catch(function (err) {
+          console.error('Error loading accepted_paper.json:', err);
+        });
     });
   </script>
 
