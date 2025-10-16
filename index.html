@@ -6,27 +6,36 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
   <title>ICCV 2025 Workshop on Knowledge-Intensive Multimodal Reasoning</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
+  <meta content="ICCV 2025 Workshop on Knowledge-Intensive Multimodal Reasoning" name="description">
+  <meta content="ICCV 2025, workshop, multimodal, reasoning, knowledge-intensive" name="keywords">
 
   <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
   <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800" rel="stylesheet">
+  <!-- Google Fonts: preconnect + swap to avoid render blocking -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;700&family=Raleway:wght@400;500;700;800&display=swap" rel="stylesheet">
 
-  <!-- Vendor CSS Files -->
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <!-- Critical CSS (keep render-blocking minimal) -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-
-  <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
-  
-  <!-- Custom CSS for Schedule Table -->
+
+  <!-- Non-critical vendor CSS: load without blocking -->
+  <link rel="preload" href="assets/vendor/bootstrap-icons/bootstrap-icons.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet"></noscript>
+
+  <link rel="preload" href="assets/vendor/aos/aos.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link href="assets/vendor/aos/aos.css" rel="stylesheet"></noscript>
+
+  <link rel="preload" href="assets/vendor/glightbox/css/glightbox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet"></noscript>
+
+  <link rel="preload" href="assets/vendor/swiper/swiper-bundle.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet"></noscript>
+
+  <!-- Custom CSS for Schedule Table and performance -->
   <style>
     .schedule-table {
       width: 100%;
@@ -52,22 +61,39 @@
     .schedule-table tbody tr:hover {
       background-color: #f1f1f1;
     }
-    /* 响应式设计 */
+    /* Responsive table paddings */
     @media (max-width: 768px) {
       .schedule-table th,
       .schedule-table td {
         padding: 10px;
       }
     }
+    /* Keep time on a single line */
+    .schedule-table td.time,
+    .schedule-table th:first-child {
+      white-space: nowrap;
+    }
+    /* Distinct background colors for special rows */
+    .schedule-table tr.opening-row td { background-color: #fff3cd80 !important; }
+    .schedule-table tr.break-row td   { background-color: #fff3cd80 !important; }
+    .schedule-table tr.poster-row td  { background-color: #e7f5ff80 !important; }
+    .schedule-table tr.closing-row td { background-color: #ffe0e680 !important; }
 
-    /* Custom CSS for 5 speakers per row on normal browsers */
+    /* Five speakers per row on larger screens */
     @media (min-width: 768px) {
       #speakers .speaker-col-5 {
         flex: 0 0 20%;
         max-width: 20%;
       }
     }
+
+    /* Performance: avoid work for offscreen sections until scrolled into view */
+    #speakers, #organizers, #sponsors, #grant, #accepted-paper, #topic, #cfp {
+      content-visibility: auto;
+      contain-intrinsic-size: 1000px 1px;
+    }
   </style>
+
   <!-- =======================================================
   * Template Name: TheEvent
   * Updated: Sep 18 2023 with Bootstrap v5.3.2
@@ -84,9 +110,12 @@
     <div class="container-fluid container-xxl d-flex align-items-center">
 
       <div id="logo" class="me-auto">
-        <!-- Uncomment below if you prefer to use a text logo -->
-        <!-- <h1><a href="index.html">The<span>Event</span></a></h1>-->
-        <a href="index.html" class="scrollto"><img src="assets/img/logo.png" alt="" title=""></a>
+        <!-- Optional text logo -->
+        <!-- <h1><a href="index.html">The<span>Event</span></a></h1> -->
+        <a href="index.html" class="scrollto">
+          <img src="assets/img/logo.svg" alt="Workshop Logo" title="Knowledge-Intensive Multimodal Reasoning"
+               width="160" height="40" style="height:auto" decoding="async">
+        </a>
       </div>
 
       <nav id="navbar" class="navbar order-last order-lg-0">
@@ -113,8 +142,8 @@
       <h1 class="mb-4 pb-0" style="text-transform: none;">
         Knowledge-Intensive Multimodal Reasoning<br>
         ICCV 2025, October 19 2025, Hawaii
-      <!--
       </h1>
+      <!--
       <div class="social-links" style="margin-top: 25px;">
         <a href="https://x.com/ZhiyuanCS/status/1866401974792691742" target="_blank" rel="noopener noreferrer" style="margin-right: 15px; text-decoration: none; color: #1DA1F2;">
           Twitter
@@ -143,127 +172,107 @@
     </section>
     <!-- End About Section -->
 
-  <section id="schedule" style="padding-top: 20px;">
-    <div class="container" data-aos="fade-up">
-      <div class="section-header">
-        <h2>Schedule</h2>
+    <!-- ======= Schedule Section ======= -->
+    <section id="schedule" style="padding-top: 20px;">
+      <div class="container" data-aos="fade-up">
+        <div class="section-header">
+          <h2>Schedule</h2>
+        </div>
+
+        <div class="table-responsive">
+          <table class="schedule-table table align-middle">
+            <thead>
+              <tr>
+                <th>Time&nbsp;(HST)</th>
+                <th>Session</th>
+                <th>Speaker</th>
+                <th>Talk&nbsp;Title</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="opening-row">
+                <td class="time">1:00 – 1:10</td>
+                <td colspan="3">Opening Remarks</td>
+              </tr>
+
+              <tr>
+                <td class="time">1:10 – 1:40</td>
+                <td>Invited Talk&nbsp;1</td>
+                <td>Yilun Du (Harvard)</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td class="time">1:40 – 2:10</td>
+                <td>Invited Talk&nbsp;2</td>
+                <td>Kang-Fu Mei (Google DeepMind)</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td class="time">2:10 – 2:20</td>
+                <td>Oral Paper 1</td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td class="time">2:20 – 2:30</td>
+                <td>Oral Paper 2</td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td class="time">2:30 – 2:40</td>
+                <td>Oral Paper 3</td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr class="poster-row">
+                <td class="time">2:40 – 3:30</td>
+                <td colspan="3">Poster Session</td>
+              </tr>
+              <tr>
+                <td class="time">3:30 – 4:00</td>
+                <td>Invited Talk&nbsp;3</td>
+                <td>Ziwei Liu (NTU)</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td class="time">4:00 – 4:30</td>
+                <td>Invited Talk&nbsp;4</td>
+                <td>David Fan (Meta FAIR)</td>
+                <td></td>
+              </tr>
+              <tr class="break-row">
+                <td class="time">4:30 – 4:40</td>
+                <td colspan="3">Short break</td>
+              </tr>
+              <tr>
+                <td class="time">4:40 – 4:50</td>
+                <td>Oral Paper 4</td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td class="time">4:50 – 5:20</td>
+                <td>Invited Talk&nbsp;5</td>
+                <td>Yongming Rao (Tencent Hunyuan)</td>
+                <td>Interactive Multi-Modal Reasoning with Thinking-on-Image Reasoning</td>
+              </tr>
+              <tr>
+                <td class="time">5:20 – 5:50</td>
+                <td>Panel Session</td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr class="closing-row">
+                <td class="time">5:50 – 6:00</td>
+                <td colspan="3">Paper Award &amp; Closing Remarks</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
-
-      <style>
-        /* keep time on a single line */
-        .schedule-table td.time,
-        .schedule-table th:first-child {
-          white-space: nowrap;
-        }
-        /* distinct background colours for special rows with higher specificity */
-        .schedule-table tr.opening-row td {
-          background-color: #fff3cd80 !important; /* light grey */
-        }
-        .schedule-table tr.break-row td {
-          background-color: #fff3cd80 !important; /* soft yellow */
-        }
-        .schedule-table tr.poster-row td {
-          background-color: #fff3cd80 !important; /* soft cyan */
-        }
-        .schedule-table tr.closing-row td {
-          background-color: #fff3cd80 !important; /* soft pink */
-        }
-      </style>
-
-      <div class="table-responsive">
-        <table class="schedule-table table align-middle">
-          <thead>
-            <tr>
-              <th>Time&nbsp;(HST)</th>
-              <th>Session</th>
-              <th>Speaker</th>
-              <th>Talk&nbsp;Title</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr class="opening-row">
-              <td class="time">1:00 – 1:10</td>
-              <td colspan="3">Opening Remarks</td>
-            </tr>
-
-            <tr>
-              <td class="time">1:10 – 1:40</td>
-              <td>Invited Talk&nbsp;1</td>
-              <td>Yilun Du (Harvard)</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td class="time">1:40 – 2:10</td>
-              <td>Invited Talk&nbsp;2</td>
-              <td>Kang-Fu Mei (Google DeepMind)</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td class="time">2:10 – 2:20</td>
-              <td>Oral Paper 1</td>
-              <td></td>
-              <td></td>
-            </tr>
-            <tr>
-              <td class="time">2:20 – 2:30</td>
-              <td>Oral Paper 2</td>
-              <td></td>
-              <td></td>
-            </tr>
-            <tr>
-              <td class="time">2:30 – 2:40</td>
-              <td>Oral Paper 3</td>
-              <td></td>
-              <td></td>
-            </tr>
-            <tr class="poster-row">
-              <td class="time">2:40 – 3:30</td>
-              <td colspan="3">Poster Session</td>
-            </tr>
-            <tr>
-              <td class="time">3:30 – 4:00</td>
-              <td>Invited Talk&nbsp;3</td>
-              <td>Ziwei Liu (NTU)</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td class="time">4:00 – 4:30</td>
-              <td>Invited Talk&nbsp;4</td>
-              <td>David Fan (Meta FAIR)</td>
-              <td></td>
-            </tr>
-            <tr class="break-row">
-              <td class="time">4:30 – 4:40</td>
-              <td colspan="3">Short break</td>
-            </tr>
-            <tr>
-              <td class="time">4:40 – 4:50</td>
-              <td>Oral Paper 4</td>
-              <td></td>
-              <td></td>
-            </tr>
-            <tr>
-              <td class="time">4:50 – 5:20</td>
-              <td>Invited Talk&nbsp;5</td>
-              <td>Yongming Rao (Tencent Hunyuan)</td>
-              <td>Interactive Multi-Modal Reasoning with Thinking-on-Image Reasoning</td>
-            </tr>
-            <tr>
-              <td class="time">5:20 – 5:50</td>
-              <td>Panel Session</td>
-              <td></td>
-              <td></td>
-            </tr>
-            <tr class="closing-row">
-              <td class="time">5:50 – 6:00</td>
-              <td colspan="3">Paper Award &amp; Closing Remarks</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </section>
-
+    </section>
+    <!-- End Schedule Section -->
 
     <!-- ======= Topics Section ======= -->
     <section id="topic" class="section-with-bg">
@@ -318,7 +327,7 @@
                 <div class="topic-panel interactive-panel p-4 border shadow-sm rounded" style="background: #ffffff;">
                   <b style="font-size: 18px; color: #343a40;">Evaluation and Benchmarking:</b>
                   <p style="color: #6c757d; margin-top: 10px;">
-                    Robust evaluation protocols and benchmarks are essential for gauging progress and ensuring the reliability of domain-specific multimodal AI. We will cover the development of standardized benchmarks, performance metrics, and testing methodologies designed to capture the full spectrum of specialzied domain challenges for multimodal reasoning.
+                    Robust evaluation protocols and benchmarks are essential for gauging progress and ensuring the reliability of domain-specific multimodal AI. We will cover the development of standardized benchmarks, performance metrics, and testing methodologies designed to capture the full spectrum of specialized domain challenges for multimodal reasoning.
                   </p>
                 </div>
               </div>
@@ -343,6 +352,7 @@
     </section>
     <!-- End Topics Section -->
 
+    <!-- ======= Call For Papers ======= -->
     <section id="cfp">
       <div class="container" data-aos="fade-up">
         <div class="section-header">
@@ -350,48 +360,55 @@
         </div>
         <h3>Key Dates</h3>
         <ul class="fa-ul">
-          <li><span class="fa-li"><i class="fa fa-check"></i></span><b>Submission Deadline</b>: <s>August 5, 2025</s> <b style="color: red;">August 22, 2025</b> (AOE) - Extended to facilitate EMNLP submission papers</li>
-          <li><span class="fa-li"><i class="fa fa-check"></i></span><b>Notification</b>: <s></s>August 25, 2025, (AOE)</s> <b style="color: red;">September 2, 2025</b> </li>
+          <li>
+            <b>Submission Deadline</b>:
+            <s>August 5, 2025</s>
+            <b style="color: red;">August 22, 2025</b> (AOE) - Extended to facilitate EMNLP submission papers
+          </li>
+          <li>
+            <b>Notification</b>:
+            <s>August 25, 2025 (AOE)</s>
+            <b style="color: red;">September 2, 2025</b>
+          </li>
         </ul>
-        Deadlines are strict and will not be extended under any circumstances. All deadlines follow the <a href="https://time.is/Anywhere_on_Earth">Anywhere on Earth (AoE)</a> timezone.
-        <br>
-        <br>
+        Deadlines are strict and will not be extended under any circumstances. All deadlines follow the
+        <a href="https://time.is/Anywhere_on_Earth" target="_blank" rel="noopener noreferrer">Anywhere on Earth (AoE)</a> timezone.
+        <br><br>
         <h3>Submission Site</h3>
         <p>
-          Submissions are managed via <a href="https://openreview.net/group?id=thecvf.com/ICCV/2025/Workshop/KnowledgeMR">OpenReview</a>. Papers will remain private during the review process. All authors must maintain up-to-date OpenReview profiles to ensure proper conflict-of-interest management and paper matching. Incomplete profiles may result in desk rejection.  
+          Submissions are managed via
+          <a href="https://openreview.net/group?id=thecvf.com/ICCV/2025/Workshop/KnowledgeMR" target="_blank" rel="noopener noreferrer">OpenReview</a>.
+          Papers will remain private during the review process. All authors must maintain up-to-date OpenReview profiles to ensure proper conflict-of-interest management and paper matching. Incomplete profiles may result in desk rejection.
         </p>
         <h3>Submission Format</h3>
         <p>
-          Papers are limited to eight pages, including figures and tables, in the <a href="https://www.overleaf.com/read/sjfsgkwvnjsq#8d8447">KnowledgeMR Workshop Latex Template</a> (adopted from the ICCV 2025 template). Additional pages containing cited references and appendix are allowed. Papers that are not properly anonymized, or do not use the template, or have more than eight pages (excluding references and appendix) will be rejected without review.
+          Papers are limited to eight pages, including figures and tables, in the
+          <a href="https://www.overleaf.com/read/sjfsgkwvnjsq#8d8447" target="_blank" rel="noopener noreferrer">KnowledgeMR Workshop Latex Template</a>
+          (adopted from the ICCV 2025 template). Additional pages containing cited references and appendix are allowed. Papers that are not properly anonymized, or do not use the template, or have more than eight pages (excluding references and appendix) will be rejected without review.
         </p>
         <h3>Anonymity</h3>
         <p>
-          Double blind review: Our reviewing is double blind, in that authors do not know the names of the area chairs or reviewers for their papers, and the area chairs/reviewers cannot, beyond a reasonable doubt, infer the names of the authors from the submission and the additional material. 
-        </p> 
+          Double blind review: Our reviewing is double blind, in that authors do not know the names of the area chairs or reviewers for their papers, and the area chairs/reviewers cannot, beyond a reasonable doubt, infer the names of the authors from the submission and the additional material.
+        </p>
         <h3>Dual Submission and Non-Archival Policy</h3>
         <p>
           Submissions under review at other venues will be accepted, provided they do not breach any dual-submission or anonymity policies of those venues. Submissions will not be indexed or have archival proceedings. We welcome ICCV 25, EMNLP 25, ICLR 26, AAAI 26 submissions.
         </p>
       </div>
     </section>
+    <!-- End CFP -->
 
-    <br>
-    <br>
+    <!-- ======= Accepted Papers ======= -->
+    <br><br>
     <section id="accepted-paper">
       <div class="container" data-aos="fade-up">
-        <!-- <div class="section-header">
-          <h2>Accepted Paper</h2>
-        </div>
-        <p>
-          Coming Soon
-        </p> -->
-        <!--
         <div class="mb-3" style="border: 1px solid #ddd; border-radius: 5px;">
-          <div style="background-color: #e2eeff; padding: 10px; cursor: pointer; font-weight: 500; display: flex; justify-content: space-between; align-items: center;"
-            data-bs-toggle="collapse" data-bs-target="#poster-presentations" aria-expanded="true"
-            aria-controls="poster-presentations">
+          <div
+            style="background-color: #e2eeff; padding: 10px; cursor: pointer; font-weight: 500; display: flex; justify-content: space-between; align-items: center;"
+            data-bs-toggle="collapse" data-bs-target="#poster-presentations" aria-expanded="false"
+            aria-controls="poster-presentations" id="acceptedPapersToggle">
             <span>Accepted Papers</span>
-            <i class="bi bi-chevron-up"></i>
+            <i class="bi bi-chevron-down"></i>
           </div>
           <div class="collapse" id="poster-presentations">
             <div style="padding: 15px;">
@@ -399,12 +416,12 @@
             </div>
           </div>
         </div>
-        -->
       </div>
     </section>
+    <!-- End Accepted Papers -->
 
-    <br>
-    <br>
+    <!-- ======= Student Registration Grant ======= -->
+    <br><br>
     <section id="grant">
       <div class="container" data-aos="fade-up">
         <div class="section-header">
@@ -413,14 +430,16 @@
         <p>
           We are excited to offer a limited number of free full conference, "student early" registrations for ICCV 2025, exclusively for full-time students attending in person. This initiative aims to support early-career researchers while fostering diversity, equity, and inclusion (DEI) in the academic community.
         </p>
-        
+
         <h3>Selection Criteria</h3>
         <p>
           Applications will be evaluated based on the strength of the submitted materials (see details below). Priority will be given to students presenting papers at our workshop who lack alternative travel support.
         </p>
         <h3>How to Apply</h3>
         <p>
-          Interested students must complete the application form <a href="https://forms.gle/PjKXLnFCtigt9LQa9">here</a> by <b>11:59pm (AoE) on August 26, 2025</b>, which includes the following:
+          Interested students must complete the application form
+          <a href="https://forms.gle/PjKXLnFCtigt9LQa9" target="_blank" rel="noopener noreferrer">here</a>
+          by <b>11:59pm (AoE) on August 26, 2025</b>, which includes the following:
         </p>
         <ul>
           <li><b>Personal &amp; Academic Details</b>: Name, affiliation, and relevant academic information</li>
@@ -431,16 +450,18 @@
         </ul>
         <h3>Important Notes</h3>
         <ul>
-          <li>Awardees will be announced in September 3, 2025</li>
+          <li>Awardees will be announced on September 3, 2025</li>
           <li>If you have already registered, please submit your receipt, and we will provide further instructions</li>
-          <li>Travel and accommodations must be arranged independently—this grant covers registration only</li>
+          <li>Travel and accommodations must be arranged independently; this grant covers registration only</li>
         </ul>
         <p>
-          This opportunity is highly competitive, and we encourage all eligible students to apply early!
+          This opportunity is highly competitive, and we encourage all eligible students to apply early.
         </p>
       </div>
     </section>
+    <!-- End Grant -->
 
+    <!-- ======= Speakers ======= -->
     <section id="speakers" class="section-with-bg">
       <div class="container" data-aos="fade-up">
         <div class="section-header">
@@ -449,7 +470,8 @@
         <div class="row">
           <div class="speaker-col-5 col-sm-4 col-6">
             <div class="speaker" data-aos="fade-up" data-aos-delay="200" style="text-align: center;">
-              <img src="assets/img/organizers/speaker/yilundu.png" alt="Yilun Du" class="img-fluid">
+              <img src="assets/img/organizers/speaker/yilundu.png" alt="Yilun Du" class="img-fluid"
+                   loading="lazy" decoding="async" width="320" height="320" style="height:auto">
               <br><a href="https://yilundu.github.io/" style="font-size: 1.2em; color: #00356B;">Yilun Du</a></br>
               <p>Harvard</p>
             </div>
@@ -457,7 +479,8 @@
 
           <div class="speaker-col-5 col-sm-4 col-6">
             <div class="speaker" data-aos="fade-up" data-aos-delay="200" style="text-align: center;">
-              <img src="assets/img/organizers/speaker/ziwei.png" alt="Ziwei Liu" class="img-fluid">
+              <img src="assets/img/organizers/speaker/ziwei.png" alt="Ziwei Liu" class="img-fluid"
+                   loading="lazy" decoding="async" width="320" height="320" style="height:auto">
               <br><a href="https://liuziwei7.github.io/" style="font-size: 1.2em; color: #00356B;">Ziwei Liu</a></br>
               <p>NTU</p>
             </div>
@@ -465,7 +488,8 @@
 
           <div class="speaker-col-5 col-sm-4 col-6">
             <div class="speaker" data-aos="fade-up" data-aos-delay="200" style="text-align: center;">
-              <img src="assets/img/organizers/speaker/Kangfu_DR.jpg" alt="Kangfu Mei" class="img-fluid">
+              <img src="assets/img/organizers/speaker/Kangfu_DR.jpg" alt="Kang-Fu Mei" class="img-fluid"
+                   loading="lazy" decoding="async" width="320" height="320" style="height:auto">
               <br><a href="https://kfmei.com/" style="font-size: 1.2em; color: #00356B;">Kang-Fu Mei</a></br>
               <p>Google DeepMind</p>
             </div>
@@ -473,7 +497,8 @@
 
           <div class="speaker-col-5 col-sm-4 col-6">
             <div class="speaker" data-aos="fade-up" data-aos-delay="200" style="text-align: center;">
-              <img src="assets/img/organizers/speaker/david.jpg" alt="David Fan" class="img-fluid">
+              <img src="assets/img/organizers/speaker/david.jpg" alt="David Fan" class="img-fluid"
+                   loading="lazy" decoding="async" width="320" height="320" style="height:auto">
               <br><a href="https://davidfan.io/" style="font-size: 1.2em; color: #00356B;">David Fan</a></br>
               <p>Meta FAIR</p>
             </div>
@@ -481,7 +506,8 @@
 
           <div class="speaker-col-5 col-sm-4 col-6">
             <div class="speaker" data-aos="fade-up" data-aos-delay="200" style="text-align: center;">
-              <img src="assets/img/organizers/speaker/yongming.png" alt="Yongming Rao" class="img-fluid">
+              <img src="assets/img/organizers/speaker/yongming.png" alt="Yongming Rao" class="img-fluid"
+                   loading="lazy" decoding="async" width="320" height="320" style="height:auto">
               <br><a href="https://raoyongming.github.io/" style="font-size: 1.2em; color: #00356B;">Yongming Rao</a></br>
               <p>Tencent Hunyuan</p>
             </div>
@@ -489,7 +515,9 @@
         </div>
       </div>
     </section>
+    <!-- End Speakers -->
 
+    <!-- ======= Organizers ======= -->
     <section id="organizers">
       <div class="container" data-aos="fade-up">
         <div class="section-header">
@@ -500,7 +528,8 @@
         <div class="row">
           <div class="col-lg-2 col-md-3 col-sm-4 col-6">
             <div class="speaker" data-aos="fade-up" data-aos-delay="200" style="text-align: center;">
-              <img src="assets/img/organizers/faculty/arman.jpg" alt="Arman Cohan" class="img-fluid">
+              <img src="assets/img/organizers/faculty/arman.jpg" alt="Arman Cohan" class="img-fluid"
+                   loading="lazy" decoding="async" width="320" height="320" style="height:auto">
               <br><a href="https://armancohan.com/" style="font-size: 1.2em; color: #00356B;">Arman Cohan</a></br>
               <p>Yale</p>
             </div>
@@ -508,7 +537,8 @@
 
           <div class="col-lg-2 col-md-3 col-sm-4 col-6">
             <div class="speaker" data-aos="fade-up" data-aos-delay="200" style="text-align: center;">
-              <img src="assets/img/organizers/faculty/xiangliang.png" alt="Xiangliang Zhang" class="img-fluid">
+              <img src="assets/img/organizers/faculty/xiangliang.png" alt="Xiangliang Zhang" class="img-fluid"
+                   loading="lazy" decoding="async" width="320" height="320" style="height:auto">
               <br><a href="https://sites.nd.edu/xiangliang-zhang/" style="font-size: 1.2em; color: #00356B;">Xiangliang Zhang</a></br>
               <p>Notre Dame</p>
             </div>
@@ -516,7 +546,8 @@
 
           <div class="col-lg-2 col-md-3 col-sm-4 col-6">
             <div class="speaker" data-aos="fade-up" data-aos-delay="200" style="text-align: center;">
-              <img src="assets/img/organizers/faculty/manling.jpg" alt="Manling Li" class="img-fluid">
+              <img src="assets/img/organizers/faculty/manling.jpg" alt="Manling Li" class="img-fluid"
+                   loading="lazy" decoding="async" width="320" height="320" style="height:auto">
               <br><a href="https://limanling.github.io/" style="font-size: 1.2em; color: #00356B;">Manling Li</a></br>
               <p>Northwestern</p>
             </div>
@@ -524,7 +555,8 @@
 
           <div class="col-lg-2 col-md-3 col-sm-4 col-6">
             <div class="speaker" data-aos="fade-up" data-aos-delay="200" style="text-align: center;">
-              <img src="assets/img/organizers/faculty/yapeng.jpg" alt="Yapeng Tian" class="img-fluid">
+              <img src="assets/img/organizers/faculty/yapeng.jpg" alt="Yapeng Tian" class="img-fluid"
+                   loading="lazy" decoding="async" width="320" height="320" style="height:auto">
               <br><a href="https://www.yapengtian.com/" style="font-size: 1.2em; color: #00356B;">Yapeng Tian</a></br>
               <p>UT Dallas</p>
             </div>
@@ -532,7 +564,8 @@
 
           <div class="col-lg-2 col-md-3 col-sm-4 col-6">
             <div class="speaker" data-aos="fade-up" data-aos-delay="200" style="text-align: center;">
-              <img src="assets/img/organizers/faculty/minhao.jpg" alt="Minhao Cheng" class="img-fluid">
+              <img src="assets/img/organizers/faculty/minhao.jpg" alt="Minhao Cheng" class="img-fluid"
+                   loading="lazy" decoding="async" width="320" height="320" style="height:auto">
               <br><a href="https://cmhcbb.github.io/" style="font-size: 1.2em; color: #00356B;">Minhao Cheng</a></br>
               <p>Penn State</p>
             </div>
@@ -540,23 +573,26 @@
 
           <div class="col-lg-2 col-md-3 col-sm-4 col-6">
             <div class="speaker" data-aos="fade-up" data-aos-delay="200" style="text-align: center;">
-              <img src="assets/img/organizers/faculty/zeynep.jpg" alt="Zeynep Akata" class="img-fluid">
+              <img src="assets/img/organizers/faculty/zeynep.jpg" alt="Zeynep Akata" class="img-fluid"
+                   loading="lazy" decoding="async" width="320" height="320" style="height:auto">
               <br><a href="https://www.eml-munich.de/people/zeynep-akata" style="font-size: 1.2em; color: #00356B;">Zeynep Akata</a></br>
               <p>TUM</p>
             </div>
           </div>
 
-        <div class="col-lg-2 col-md-3 col-sm-4 col-6">
-          <div class="speaker" data-aos="fade-up" data-aos-delay="200" style="text-align: center;">
-            <img src="assets/img/organizers/faculty/wenhu.jpg" alt="Wenhu Chen" class="img-fluid">
-            <br><a href="https://wenhuchen.github.io/" style="font-size: 1.2em; color: #00356B;">Wenhu Chen</a></br>
-            <p>UWaterloo</p>
+          <div class="col-lg-2 col-md-3 col-sm-4 col-6">
+            <div class="speaker" data-aos="fade-up" data-aos-delay="200" style="text-align: center;">
+              <img src="assets/img/organizers/faculty/wenhu.jpg" alt="Wenhu Chen" class="img-fluid"
+                   loading="lazy" decoding="async" width="320" height="320" style="height:auto">
+              <br><a href="https://wenhuchen.github.io/" style="font-size: 1.2em; color: #00356B;">Wenhu Chen</a></br>
+              <p>UWaterloo</p>
+            </div>
           </div>
-        </div>
 
           <div class="col-lg-2 col-md-3 col-sm-4 col-6">
             <div class="speaker" data-aos="fade-up" data-aos-delay="200" style="text-align: center;">
-              <img src="assets/img/organizers/student/yilun.jpeg" alt="Yilun Zhao" class="img-fluid">
+              <img src="assets/img/organizers/student/yilun.jpeg" alt="Yilun Zhao" class="img-fluid"
+                   loading="lazy" decoding="async" width="320" height="320" style="height:auto">
               <br><a href="https://yilunzhao.github.io/" style="font-size: 1.2em; color: #00356B;">Yilun Zhao</a></br>
               <p>Yale</p>
             </div>
@@ -564,7 +600,8 @@
 
           <div class="col-lg-2 col-md-3 col-sm-4 col-6">
             <div class="speaker" data-aos="fade-up" data-aos-delay="200" style="text-align: center;">
-              <img src="assets/img/organizers/student/haowei.png" alt="Haowei Zhang" class="img-fluid">
+              <img src="assets/img/organizers/student/haowei.png" alt="Haowei Zhang" class="img-fluid"
+                   loading="lazy" decoding="async" width="320" height="320" style="height:auto">
               <br><a href="https://haowei-freesky.github.io/" style="font-size: 1.2em; color: #00356B;">Haowei Zhang</a></br>
               <p>Fudan University</p>
             </div>
@@ -572,7 +609,8 @@
 
           <div class="col-lg-2 col-md-3 col-sm-4 col-6">
             <div class="speaker" data-aos="fade-up" data-aos-delay="200" style="text-align: center;">
-              <img src="assets/img/organizers/student/tianyu.png" alt="Tianyu Yang" class="img-fluid">
+              <img src="assets/img/organizers/student/tianyu.png" alt="Tianyu Yang" class="img-fluid"
+                   loading="lazy" decoding="async" width="320" height="320" style="height:auto">
               <br><a href="https://tianyu-yang-anna.github.io/" style="font-size: 1.2em; color: #00356B;">Tianyu Yang</a></br>
               <p>Notre Dame</p>
             </div>
@@ -580,7 +618,8 @@
 
           <div class="col-lg-2 col-md-3 col-sm-4 col-6">
             <div class="speaker" data-aos="fade-up" data-aos-delay="200" style="text-align: center;">
-              <img src="assets/img/organizers/student/zhenting.jpg" alt="Zhenting Qi" class="img-fluid">
+              <img src="assets/img/organizers/student/zhenting.jpg" alt="Zhenting Qi" class="img-fluid"
+                   loading="lazy" decoding="async" width="320" height="320" style="height:auto">
               <br><a href="https://zhentingqi.github.io/" style="font-size: 1.2em; color: #00356B;">Zhenting Qi</a></br>
               <p>Harvard</p>
             </div>
@@ -588,7 +627,8 @@
 
           <div class="col-lg-2 col-md-3 col-sm-4 col-6">
             <div class="speaker" data-aos="fade-up" data-aos-delay="200" style="text-align: center;">
-              <img src="assets/img/organizers/student/yuyang.jpg" alt="Yuyang Liu" class="img-fluid">
+              <img src="assets/img/organizers/student/yuyang.jpg" alt="Yuyang Liu" class="img-fluid"
+                   loading="lazy" decoding="async" width="320" height="320" style="height:auto">
               <br><a href="https://scholar.google.com/citations?user=sWSKvYUAAAAJ&hl=zh-CN" style="font-size: 1.2em; color: #00356B;">Yuyang Liu</a></br>
               <p>Peking University</p>
             </div>
@@ -596,15 +636,17 @@
 
           <div class="col-lg-2 col-md-3 col-sm-4 col-6">
             <div class="speaker" data-aos="fade-up" data-aos-delay="200" style="text-align: center;">
-              <img src="assets/img/organizers/student/zhiyuan.jpg" alt="Zhiyuan Hu" class="img-fluid">
+              <img src="assets/img/organizers/student/zhiyuan.jpg" alt="Zhiyuan Hu" class="img-fluid"
+                   loading="lazy" decoding="async" width="320" height="320" style="height:auto">
               <br><a href="https://zhiyuanhubj.github.io/" style="font-size: 1.2em; color: #00356B;">Zhiyuan Hu</a></br>
               <p>NUS</p>
             </div>
           </div>
-          
+
           <div class="col-lg-2 col-md-3 col-sm-4 col-6">
             <div class="speaker" data-aos="fade-up" data-aos-delay="200" style="text-align: center;">
-              <img src="assets/img/organizers/student/simeng.png" alt="Simeng Han" class="img-fluid">
+              <img src="assets/img/organizers/student/simeng.png" alt="Simeng Han" class="img-fluid"
+                   loading="lazy" decoding="async" width="320" height="320" style="height:auto">
               <br><a href="https://sophiahan6.github.io/" style="font-size: 1.2em; color: #00356B;">Simeng Han</a></br>
               <p>Yale</p>
             </div>
@@ -612,7 +654,8 @@
 
           <div class="col-lg-2 col-md-3 col-sm-4 col-6">
             <div class="speaker" data-aos="fade-up" data-aos-delay="200" style="text-align: center;">
-              <img src="assets/img/organizers/student/rui.png" alt="Rui Xiao" class="img-fluid">
+              <img src="assets/img/organizers/student/rui.png" alt="Rui Xiao" class="img-fluid"
+                   loading="lazy" decoding="async" width="320" height="320" style="height:auto">
               <br><a href="https://www.eml-munich.de/people/rui-xiao" style="font-size: 1.2em; color: #00356B;">Rui Xiao</a></br>
               <p>TUM</p>
             </div>
@@ -620,14 +663,17 @@
 
           <div class="col-lg-2 col-md-3 col-sm-4 col-6">
             <div class="speaker" data-aos="fade-up" data-aos-delay="200" style="text-align: center;">
-              <img src="assets/img/organizers/student/xiangru.jpg" alt="Xiangru Tang" class="img-fluid">
+              <img src="assets/img/organizers/student/xiangru.jpg" alt="Xiangru Tang" class="img-fluid"
+                   loading="lazy" decoding="async" width="320" height="320" style="height:auto">
               <br><a href="https://sophiahan6.github.io/" style="font-size: 1.2em; color: #00356B;">Xiangru Tang</a></br>
               <p>Yale</p>
             </div>
           </div>
+
           <div class="col-lg-2 col-md-3 col-sm-4 col-6">
             <div class="speaker" data-aos="fade-up" data-aos-delay="200" style="text-align: center;">
-              <img src="assets/img/organizers/student/fan.jpg" alt="Fan Nie" class="img-fluid">
+              <img src="assets/img/organizers/student/fan.jpg" alt="Fan Nie" class="img-fluid"
+                   loading="lazy" decoding="async" width="320" height="320" style="height:auto">
               <br><a href="https://fannie1208.github.io/" style="font-size: 1.2em; color: #00356B;">Fan Nie</a></br>
               <p>Stanford</p>
             </div>
@@ -635,12 +681,9 @@
         </div>
       </div>
     </section>
-
-    <br>
-    <br>
+    <!-- End Organizers -->
 
   </main><!-- End #main -->
-
 
   <!-- ======= Sponsors Section ======= -->
   <section id="sponsors" class="section-with-bg">
@@ -651,18 +694,19 @@
       <div class="row justify-content-center">
         <div class="col-lg-4 col-md-6">
           <div class="sponsor text-center">
-            <img src="assets/img/tencent.png" alt="Tencent" class="img-fluid" style="max-height: 120px;">
+            <img src="assets/img/tencent.png" alt="Tencent" class="img-fluid"
+                 loading="lazy" decoding="async" width="320" height="120" style="height:auto; max-height: 120px;">
           </div>
         </div>
       </div>
       <div class="row mt-4">
         <div class="col-12 text-center">
-          <p><em>We welcome sponsorship opportunities! To become a sponsor, please contact us (Yilun Zhao: yilun.zhao@yale.edu).</em></p>
+          <p><em>We welcome sponsorship opportunities. To become a sponsor, please contact us (Yilun Zhao: <a href="mailto:yilun.zhao@yale.edu">yilun.zhao@yale.edu</a>).</em></p>
         </div>
       </div>
     </div>
   </section><!-- End Sponsors Section -->
-  
+
   <!-- ======= Footer ======= -->
   <footer id="footer">
     <div class="container">
@@ -670,62 +714,68 @@
         <!-- &copy; Copyright <strong>TheEvent</strong>. All Rights Reserved -->
       </div>
       <div class="credits">
-        Template adopted from <a href="https://workshop-llm-reasoning-planning.github.io/">Reasoning and Planning for Large Language Models @ ICLR 2025</a>
+        Template adopted from <a href="https://workshop-llm-reasoning-planning.github.io/" target="_blank" rel="noopener noreferrer">Reasoning and Planning for Large Language Models @ ICLR 2025</a>
       </div>
     </div>
   </footer><!-- End Footer -->
 
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center" aria-label="Back to top"><i class="bi bi-arrow-up-short"></i></a>
 
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script> 
+  <!-- Vendor JS Files (deferred for faster first paint) -->
+  <script src="assets/vendor/aos/aos.js" defer></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js" defer></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js" defer></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js" defer></script>
+  <!-- Removed php-email-form/validate.js because this page has no contact form -->
 
   <!-- Template Main JS File -->
-  <script src="assets/js/main.js"></script>
+  <script src="assets/js/main.js" defer></script>
 
-  <!-- ======= Dynamic Loading Script ======= -->
+  <!-- ======= Accepted Papers: lazy fetch only when expanded ======= -->
   <script>
-    // This example assumes accepted_paper.json is located in the same directory as your HTML file.
-    // Adjust the path as necessary.
-    fetch('accepted_paper.json')
-      .then(response => response.json())
-      .then(data => {
-        const posterList = document.getElementById('posterList');
-        
-        // In the snippet, the data in accepted_paper.json is an object with a "notes" array
-        // that holds the accepted papers
-        const notes = data.notes;  // e.g. data.notes = [{ content: {...}, ...}, ...]
+    // English comments: Lazy-load accepted_paper.json when the section is expanded
+    document.addEventListener('DOMContentLoaded', function () {
+      const toggle = document.getElementById('acceptedPapersToggle');
+      const list = document.getElementById('posterList');
+      if (!toggle || !list) return;
 
-        notes.forEach(item => {
-          const title = item.content.title.value;
-          // Authors may be stored as an array in item.content.authors.value or a single string, depending on your JSON
-          // If it's an array, join them
-          const authorsVal = item.content.authors.value;
-          let authors = Array.isArray(authorsVal) ? authorsVal.join(", ") : authorsVal;
-
-          const li = document.createElement('li');
-          li.innerHTML = `
-            <b>${title}</b><br>
-            Authors: ${authors}
-          `;
-          posterList.appendChild(li);
-
-          // Add some spacing after each paper
-          const br = document.createElement('br');
-          posterList.appendChild(br);
-        });
-      })
-      .catch(error => {
-        console.error('Error loading accepted_paper.json:', error);
+      let loaded = false;
+      toggle.addEventListener('click', function () {
+        if (loaded) return;
+        fetch('accepted_paper.json')
+          .then(function (r) { return r.json(); })
+          .then(function (data) {
+            const notes = (data && data.notes) ? data.notes : [];
+            notes.forEach(function (item) {
+              const title = item && item.content && item.content.title ? (item.content.title.value || 'Untitled') : 'Untitled';
+              const authorsVal = item && item.content && item.content.authors ? item.content.authors.value : [];
+              const authors = Array.isArray(authorsVal) ? authorsVal.join(', ') : (authorsVal || '');
+              const li = document.createElement('li');
+              li.innerHTML = '<b>' + title + '</b><br>Authors: ' + authors;
+              list.appendChild(li);
+              list.appendChild(document.createElement('br'));
+            });
+            loaded = true;
+          })
+          .catch(function (err) {
+            console.error('Error loading accepted_paper.json:', err);
+          });
       });
+    });
   </script>
 
-  <a href="https://info.flagcounter.com/fIO5"><img src="https://s05.flagcounter.com/count2/fIO5/bg_FFFFFF/txt_000000/border_CCCCCC/columns_6/maxflags_20/viewers_0/labels_0/pageviews_0/flags_0/percent_0/" alt="Flag Counter" border="0"></a>
+  <!-- ======= Lazy-load flag counter after full load to avoid blocking ======= -->
+  <script>
+    // English comments: Inject the counter only after window load
+    window.addEventListener('load', function () {
+      const a = document.createElement('a');
+      a.href = 'https://info.flagcounter.com/fIO5';
+      a.rel = 'noopener noreferrer';
+      a.target = '_blank';
+      a.innerHTML = '<img src="https://s05.flagcounter.com/count2/fIO5/bg_FFFFFF/txt_000000/border_CCCCCC/columns_6/maxflags_20/viewers_0/labels_0/pageviews_0/flags_0/percent_0/" alt="Flag Counter" border="0" width="480" height="80" loading="lazy" decoding="async">';
+      document.body.appendChild(a);
+    });
+  </script>
 
 </body>
-
 </html>
