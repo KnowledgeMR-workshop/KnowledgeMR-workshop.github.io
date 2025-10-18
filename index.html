@@ -74,16 +74,16 @@
       white-space: nowrap;
     }
     /* Distinct background colors for special rows */
-    .schedule-table tr.opening-row td { background-color: #fff3cd80 !important; }
     .schedule-table tr.break-row td   { background-color: #fff3cd80 !important; }
     .schedule-table tr.poster-row td  { background-color: #e7f5ff80 !important; }
-    .schedule-table tr.closing-row td { background-color: #ffe0e680 !important; }
+    /* Grey variant for specific short breaks */
+    .schedule-table tr.gray-break td  { background-color: #f8f9fa !important; }
 
-    /* Five speakers per row on larger screens */
+    /* Four speakers per row on larger screens (yields 4 + 3 for 7 profiles) */
     @media (min-width: 768px) {
       #speakers .speaker-col-5 {
-        flex: 0 0 20%;
-        max-width: 20%;
+        flex: 0 0 25%;
+        max-width: 25%;
       }
     }
 
@@ -92,6 +92,26 @@
       content-visibility: auto;
       contain-intrinsic-size: 1000px 1px;
     }
+  </style>
+  <style>
+    /* Make topic toggles feel clickable and add explicit icon */
+    #topic summary {
+      cursor: pointer;
+      list-style: none;
+      position: relative;
+      padding-left: 1.2em;
+    }
+    #topic summary::-webkit-details-marker { display: none; }
+    #topic details > summary::before {
+      content: '▶';
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+    #topic details[open] > summary::before {
+      content: '▼';
+    }
+    #topic details > summary b { display: inline-block; }
   </style>
 
   <!-- =======================================================
@@ -207,26 +227,25 @@
                 <td>Kang-Fu Mei (Google DeepMind)</td>
                 <td>The Power of Context: How Multimodality Reasoning Improves Image Generation</td>
               </tr>
+              <tr class="break-row gray-break">
+                <td class="time">2:10 – 2:15</td>
+                <td colspan="3">Short break</td>
+              </tr>
               <tr>
-                <td class="time">2:10 – 2:20</td>
+                <td class="time">2:15 – 2:25</td>
                 <td>Oral Paper 1</td>
                 <td>Enxin Song (UCSD &amp; ZJU)</td>
                 <td>Video-MMLU: A Massive Multi-Discipline Lecture Understanding Benchmark</td>
               </tr>
+              
               <tr>
-                <td class="time">2:20 – 2:30</td>
+                <td class="time">2:25 – 2:35</td>
                 <td>Oral Paper 2</td>
-                <td>Zeyuan Yang (UMass)</td>
-                <td>Machine Mental Imagery: Empower Multimodal Reasoning with Latent Visual Tokens</td>
-              </tr>
-              <tr>
-                <td class="time">2:30 – 2:40</td>
-                <td>Oral Paper 3</td>
                 <td>Ziqi Huang (NTU)</td>
                 <td>VChain: Chain-of-Visual-Thought for Reasoning in Video Generation</td>
               </tr>
               <tr class="poster-row">
-                <td class="time">2:40 – 3:30</td>
+                <td class="time">2:35 – 3:30</td>
                 <td colspan="3">Poster Session</td>
               </tr>
               <tr>
@@ -241,30 +260,30 @@
                 <td>David Fan (Meta FAIR)</td>
                 <td></td>
               </tr>
-              <tr class="break-row">
+              <tr class="break-row gray-break">
                 <td class="time">4:30 – 4:40</td>
                 <td colspan="3">Short break</td>
               </tr>
               <tr>
                 <td class="time">4:40 – 4:50</td>
-                <td>Oral Paper 4</td>
+                <td>Oral Paper 3</td>
                 <td>Shoubin Yu (UNC)</td>
                 <td>SciVideoBench: Benchmarking Scientific Video Reasoning in Large Multimodal Models</td>
               </tr>
               <tr>
-                <td class="time">4:50 – 5:20</td>
-                <td>Invited Talk&nbsp;5</td>
-                <td>Yilun Du (Harvard)</td>
-                <td></td>
+                <td class="time">4:50 – 5:00</td>
+                <td>Oral Paper 4</td>
+                <td>Zeyuan Yang (UMass)</td>
+                <td>Machine Mental Imagery: Empower Multimodal Reasoning with Latent Visual Tokens</td>
               </tr>
               <tr>
-                <td class="time">5:20 – 5:50</td>
+                <td class="time">5:00 – 5:30</td>
                 <td>Panel Session</td>
                 <td></td>
                 <td></td>
               </tr>
               <tr class="closing-row">
-                <td class="time">5:50 – 6:00</td>
+                <td class="time">5:30 – 5:40</td>
                 <td colspan="3">Paper Award &amp; Closing Remarks</td>
               </tr>
             </tbody>
@@ -274,183 +293,9 @@
     </section>
     <!-- End Schedule Section -->
 
-    <!-- ======= Topics Section ======= -->
-    <section id="topic" class="section-with-bg">
-      <br>
-      <br>
-      <div class="container" data-aos="fade-up">
-        <div class="section-header">
-          <h2>Topics</h2>
-          <p>The workshop will cover a range of topics, including but not limited to:</p>
-        </div>
-        <section id="topics">
-          <div class="container">
-            <!-- Topic 1 -->
-            <div class="row mb-4">
-              <div class="col-12">
-                <div class="topic-panel interactive-panel p-4 border shadow-sm rounded" style="background: #ffffff;">
-                  <b style="font-size: 18px; color: #343a40;">Knowledge-intensive Multimodal Learning:</b>
-                  <p style="color: #6c757d; margin-top: 10px;">
-                    This topic focuses on method and architecture designs that integrate domain-specific knowledge with diverse data sources (e.g., text, images, sensor data, and structured data) across specialized fields. We will cover data curation strategies, modality fusion techniques, representation learning frameworks, and explainability methods aimed at ensuring that models capture the domain knowledge crucial for reliable reasoning in high-stakes settings.
-                  </p>
-                </div>
-              </div>
-            </div>
+    
 
-            <!-- Topic 2 -->
-            <div class="row mb-4">
-              <div class="col-12">
-                <div class="topic-panel interactive-panel p-4 border shadow-sm rounded" style="background: #ffffff;">
-                  <b style="font-size: 18px; color: #343a40;">Multimodal Foundation Models for Specialized Domains:</b>
-                  <p style="color: #6c757d; margin-top: 10px;">
-                    This topic investigates how to adapt large-scale and general-purpose multimodal foundation models for domains where specialized expertise is essential, such as clinical diagnostics, scientific research, and advanced engineering applications. We will cover strategies for efficient fine-tuning, prompt engineering, domain-centric pre-training, and knowledge distillation to blend foundational capabilities with expert-level insights.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <!-- Topic 3 -->
-            <div class="row mb-4">
-              <div class="col-12">
-                <div class="topic-panel interactive-panel p-4 border shadow-sm rounded" style="background: #ffffff;">
-                  <b style="font-size: 18px; color: #343a40;">Embodied AI for Knowledge-Intensive Scenarios:</b>
-                  <p style="color: #6c757d; margin-top: 10px;">
-                    This topic explores the integration of multimodal reasoning in physical or interactive domains, ranging from industrial automation to laboratory robotics. Key discussion points include sensor fusion, adaptive learning with minimal supervision, human-robot collaboration, and simulation-to-real transfer in safety-critical scenarios. Emphasis will be placed on how advanced reasoning techniques—grounded in specialized domain knowledge—can help ensure transparency, robustness, and trustworthiness in embodied AI systems.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <!-- Topic 4 -->
-            <div class="row mb-4">
-              <div class="col-12">
-                <div class="topic-panel interactive-panel p-4 border shadow-sm rounded" style="background: #ffffff;">
-                  <b style="font-size: 18px; color: #343a40;">Evaluation and Benchmarking:</b>
-                  <p style="color: #6c757d; margin-top: 10px;">
-                    Robust evaluation protocols and benchmarks are essential for gauging progress and ensuring the reliability of domain-specific multimodal AI. We will cover the development of standardized benchmarks, performance metrics, and testing methodologies designed to capture the full spectrum of specialized domain challenges for multimodal reasoning.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <!-- Topic 5 -->
-            <div class="row mb-4">
-              <div class="col-12">
-                <div class="topic-panel interactive-panel p-4 border shadow-sm rounded" style="background: #ffffff;">
-                  <b style="font-size: 18px; color: #343a40;">Exploring Broader Topics in Knowledge-intensive Multimodal Reasoning:</b>
-                  <p style="color: #6c757d; margin-top: 10px;">
-                    In addition to the core themes above, our discussions will expand to emerging areas such as integrating symbolic and neural methods for structured reasoning, ensuring privacy and security with sensitive data, exploring multi-agent collaboration for complex decision-making, and examining societal and ethical considerations when deploying multimodal systems in real-world, high-stakes environments.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-      </div>
-      <br>
-      <br>
-    </section>
-    <!-- End Topics Section -->
-
-    <!-- ======= Call For Papers ======= -->
-    <section id="cfp">
-      <div class="container" data-aos="fade-up">
-        <div class="section-header">
-          <h2>Call For Papers</h2>
-        </div>
-        <h3>Key Dates</h3>
-        <ul class="fa-ul">
-          <li>
-            <b>Submission Deadline</b>:
-            <s>August 5, 2025</s>
-            <b style="color: red;">August 22, 2025</b> (AOE) - Extended to facilitate EMNLP submission papers
-          </li>
-          <li>
-            <b>Notification</b>:
-            <s>August 25, 2025 (AOE)</s>
-            <b style="color: red;">September 2, 2025</b>
-          </li>
-        </ul>
-        Deadlines are strict and will not be extended under any circumstances. All deadlines follow the
-        <a href="https://time.is/Anywhere_on_Earth" target="_blank" rel="noopener noreferrer">Anywhere on Earth (AoE)</a> timezone.
-        <br><br>
-        <h3>Submission Site</h3>
-        <p>
-          Submissions are managed via
-          <a href="https://openreview.net/group?id=thecvf.com/ICCV/2025/Workshop/KnowledgeMR" target="_blank" rel="noopener noreferrer">OpenReview</a>.
-          Papers will remain private during the review process. All authors must maintain up-to-date OpenReview profiles to ensure proper conflict-of-interest management and paper matching. Incomplete profiles may result in desk rejection.
-        </p>
-        <h3>Submission Format</h3>
-        <p>
-          Papers are limited to eight pages, including figures and tables, in the
-          <a href="https://www.overleaf.com/read/sjfsgkwvnjsq#8d8447" target="_blank" rel="noopener noreferrer">KnowledgeMR Workshop Latex Template</a>
-          (adopted from the ICCV 2025 template). Additional pages containing cited references and appendix are allowed. Papers that are not properly anonymized, or do not use the template, or have more than eight pages (excluding references and appendix) will be rejected without review.
-        </p>
-        <h3>Anonymity</h3>
-        <p>
-          Double blind review: Our reviewing is double blind, in that authors do not know the names of the area chairs or reviewers for their papers, and the area chairs/reviewers cannot, beyond a reasonable doubt, infer the names of the authors from the submission and the additional material.
-        </p>
-        <h3>Dual Submission and Non-Archival Policy</h3>
-        <p>
-          Submissions under review at other venues will be accepted, provided they do not breach any dual-submission or anonymity policies of those venues. Submissions will not be indexed or have archival proceedings. We welcome ICCV 25, EMNLP 25, ICLR 26, AAAI 26 submissions.
-        </p>
-      </div>
-    </section>
-    <!-- End CFP -->
-
-    <!-- ======= Accepted Papers ======= -->
-    <section id="accepted-paper" class="section-with-bg">
-      <div class="container" data-aos="fade-up">
-        <div class="section-header">
-          <h2>Accepted Papers</h2>
-        </div>
-        <div id="poster-presentations">
-          <ul id="posterList"></ul>
-        </div>
-      </div>
-    </section>
-    <!-- End Accepted Papers -->
-
-    <!-- ======= Student Registration Grant ======= -->
-    <br><br>
-    <section id="grant">
-      <div class="container" data-aos="fade-up">
-        <div class="section-header">
-          <h2>Student Registration Grant</h2>
-        </div>
-        <p>
-          We are excited to offer a limited number of free full conference, "student early" registrations for ICCV 2025, exclusively for full-time students attending in person. This initiative aims to support early-career researchers while fostering diversity, equity, and inclusion (DEI) in the academic community.
-        </p>
-
-        <h3>Selection Criteria</h3>
-        <p>
-          Applications will be evaluated based on the strength of the submitted materials (see details below). Priority will be given to students presenting papers at our workshop who lack alternative travel support.
-        </p>
-        <h3>How to Apply</h3>
-        <p>
-          Interested students must complete the application form
-          <a href="https://forms.gle/PjKXLnFCtigt9LQa9" target="_blank" rel="noopener noreferrer">here</a>
-          by <b>11:59pm (AoE) on August 26, 2025</b>, which includes the following:
-        </p>
-        <ul>
-          <li><b>Personal &amp; Academic Details</b>: Name, affiliation, and relevant academic information</li>
-          <li><b>CV/Resume</b></li>
-          <li><b>Paper ID</b>: Accepted or submitted to our workshop</li>
-          <li><b>Statement of Interest</b>: A brief paragraph explaining how this opportunity will benefit your research and career</li>
-          <li><b>Attendance Confirmation</b>: A clear statement confirming that you will attend in person</li>
-        </ul>
-        <h3>Important Notes</h3>
-        <ul>
-          <li>Awardees will be announced on September 3, 2025</li>
-          <li>If you have already registered, please submit your receipt, and we will provide further instructions</li>
-          <li>Travel and accommodations must be arranged independently; this grant covers registration only</li>
-        </ul>
-        <p>
-          This opportunity is highly competitive, and we encourage all eligible students to apply early.
-        </p>
-      </div>
-    </section>
-    <!-- End Grant -->
+    
 
     <!-- ======= Speakers ======= -->
     <section id="speakers" class="section-with-bg">
@@ -459,14 +304,7 @@
           <h2>Speakers and Panelists</h2>
         </div>
         <div class="row">
-          <div class="speaker-col-5 col-sm-4 col-6">
-            <div class="speaker" data-aos="fade-up" data-aos-delay="200" style="text-align: center;">
-              <img src="assets/img/organizers/speaker/yilundu.png" alt="Yilun Du" class="img-fluid"
-                   loading="lazy" decoding="async" width="320" height="320" style="height:auto">
-              <br><a href="https://yilundu.github.io/" style="font-size: 1.2em; color: #00356B;">Yilun Du</a></br>
-              <p>Harvard</p>
-            </div>
-          </div>
+          
 
           <div class="speaker-col-5 col-sm-4 col-6">
             <div class="speaker" data-aos="fade-up" data-aos-delay="200" style="text-align: center;">
@@ -534,6 +372,171 @@
       </div>
     </section>
     <!-- End Speakers -->
+
+    <!-- ======= Topics Section ======= -->
+    <section id="topic" class="section-with-bg">
+      <br>
+      <br>
+      <div class="container" data-aos="fade-up">
+        <div class="section-header">
+          <h2>Topics</h2>
+          <p>The workshop will cover a range of topics, including but not limited to:</p>
+        </div>
+        <section id="topics">
+          <div class="container">
+            <div class="topic-panel interactive-panel p-4 border shadow-sm rounded" style="background: #ffffff;">
+              <details>
+                <summary><b style="font-size: 18px; color: #343a40;">Knowledge-intensive Multimodal Learning</b></summary>
+                <p style="color: #6c757d; margin-top: 10px;">
+                  This topic focuses on method and architecture designs that integrate domain-specific knowledge with diverse data sources (e.g., text, images, sensor data, and structured data) across specialized fields. We will cover data curation strategies, modality fusion techniques, representation learning frameworks, and explainability methods aimed at ensuring that models capture the domain knowledge crucial for reliable reasoning in high-stakes settings.
+                </p>
+              </details>
+
+              <hr>
+
+              <details>
+                <summary><b style="font-size: 18px; color: #343a40;">Multimodal Foundation Models for Specialized Domains</b></summary>
+                <p style="color: #6c757d; margin-top: 10px;">
+                  This topic investigates how to adapt large-scale and general-purpose multimodal foundation models for domains where specialized expertise is essential, such as clinical diagnostics, scientific research, and advanced engineering applications. We will cover strategies for efficient fine-tuning, prompt engineering, domain-centric pre-training, and knowledge distillation to blend foundational capabilities with expert-level insights.
+                </p>
+              </details>
+
+              <hr>
+
+              <details>
+                <summary><b style="font-size: 18px; color: #343a40;">Embodied AI for Knowledge-Intensive Scenarios</b></summary>
+                <p style="color: #6c757d; margin-top: 10px;">
+                  This topic explores the integration of multimodal reasoning in physical or interactive domains, ranging from industrial automation to laboratory robotics. Key discussion points include sensor fusion, adaptive learning with minimal supervision, human-robot collaboration, and simulation-to-real transfer in safety-critical scenarios. Emphasis will be placed on how advanced reasoning techniques—grounded in specialized domain knowledge—can help ensure transparency, robustness, and trustworthiness in embodied AI systems.
+                </p>
+              </details>
+
+              <hr>
+
+              <details>
+                <summary><b style="font-size: 18px; color: #343a40;">Evaluation and Benchmarking</b></summary>
+                <p style="color: #6c757d; margin-top: 10px;">
+                  Robust evaluation protocols and benchmarks are essential for gauging progress and ensuring the reliability of domain-specific multimodal AI. We will cover the development of standardized benchmarks, performance metrics, and testing methodologies designed to capture the full spectrum of specialized domain challenges for multimodal reasoning.
+                </p>
+              </details>
+
+              <hr>
+
+              <details>
+                <summary><b style="font-size: 18px; color: #343a40;">Broader Topics in Knowledge-Intensive Multimodal Reasoning</b></summary>
+                <p style="color: #6c757d; margin-top: 10px;">
+                  In addition to the core themes above, our discussions will expand to emerging areas such as integrating symbolic and neural methods for structured reasoning, ensuring privacy and security with sensitive data, exploring multi-agent collaboration for complex decision-making, and examining societal and ethical considerations when deploying multimodal systems in real-world, high-stakes environments.
+                </p>
+              </details>
+            </div>
+          </div>
+        </section>
+      </div>
+      <br>
+      <br>
+    </section>
+    <!-- End Topics Section -->
+
+    <!-- ======= Accepted Papers ======= -->
+    <section id="accepted-paper" class="section-with-bg">
+      <div class="container" data-aos="fade-up">
+        <div class="section-header">
+          <h2>Accepted Papers</h2>
+        </div>
+        <div id="poster-presentations">
+          <ul id="posterList"></ul>
+        </div>
+      </div>
+    </section>
+    <!-- End Accepted Papers -->
+
+    <!-- ======= Call For Papers ======= -->
+    <section id="cfp">
+      <div class="container" data-aos="fade-up">
+        <div class="section-header">
+          <h2>Call For Papers</h2>
+        </div>
+        <h3>Key Dates</h3>
+        <ul class="fa-ul">
+          <li>
+            <b>Submission Deadline</b>:
+            <s>August 5, 2025</s>
+            <b style="color: red;">August 22, 2025</b> (AOE) - Extended to facilitate EMNLP submission papers
+          </li>
+          <li>
+            <b>Notification</b>:
+            <s>August 25, 2025 (AOE)</s>
+            <b style="color: red;">September 2, 2025</b>
+          </li>
+        </ul>
+        Deadlines are strict and will not be extended under any circumstances. All deadlines follow the
+        <a href="https://time.is/Anywhere_on_Earth" target="_blank" rel="noopener noreferrer">Anywhere on Earth (AoE)</a> timezone.
+        <br><br>
+        <h3>Submission Site</h3>
+        <p>
+          Submissions are managed via
+          <a href="https://openreview.net/group?id=thecvf.com/ICCV/2025/Workshop/KnowledgeMR" target="_blank" rel="noopener noreferrer">OpenReview</a>.
+          Papers will remain private during the review process. All authors must maintain up-to-date OpenReview profiles to ensure proper conflict-of-interest management and paper matching. Incomplete profiles may result in desk rejection.
+        </p>
+        <h3>Submission Format</h3>
+        <p>
+          Papers are limited to eight pages, including figures and tables, in the
+          <a href="https://www.overleaf.com/read/sjfsgkwvnjsq#8d8447" target="_blank" rel="noopener noreferrer">KnowledgeMR Workshop Latex Template</a>
+          (adopted from the ICCV 2025 template). Additional pages containing cited references and appendix are allowed. Papers that are not properly anonymized, or do not use the template, or have more than eight pages (excluding references and appendix) will be rejected without review.
+        </p>
+        <h3>Anonymity</h3>
+        <p>
+          Double blind review: Our reviewing is double blind, in that authors do not know the names of the area chairs or reviewers for their papers, and the area chairs/reviewers cannot, beyond a reasonable doubt, infer the names of the authors from the submission and the additional material.
+        </p>
+        <h3>Dual Submission and Non-Archival Policy</h3>
+        <p>
+          Submissions under review at other venues will be accepted, provided they do not breach any dual-submission or anonymity policies of those venues. Submissions will not be indexed or have archival proceedings. We welcome ICCV 25, EMNLP 25, ICLR 26, AAAI 26 submissions.
+        </p>
+      </div>
+    </section>
+    <!-- End CFP -->
+
+    
+
+    <!-- ======= Student Registration Grant ======= -->
+    <br><br>
+    <section id="grant">
+      <div class="container" data-aos="fade-up">
+        <div class="section-header">
+          <h2>Student Registration Grant</h2>
+        </div>
+        <p>
+          We are excited to offer a limited number of free full conference, "student early" registrations for ICCV 2025, exclusively for full-time students attending in person. This initiative aims to support early-career researchers while fostering diversity, equity, and inclusion (DEI) in the academic community.
+        </p>
+
+        <h3>Selection Criteria</h3>
+        <p>
+          Applications will be evaluated based on the strength of the submitted materials (see details below). Priority will be given to students presenting papers at our workshop who lack alternative travel support.
+        </p>
+        <h3>How to Apply</h3>
+        <p>
+          Interested students must complete the application form
+          <a href="https://forms.gle/PjKXLnFCtigt9LQa9" target="_blank" rel="noopener noreferrer">here</a>
+          by <b>11:59pm (AoE) on August 26, 2025</b>, which includes the following:
+        </p>
+        <ul>
+          <li><b>Personal &amp; Academic Details</b>: Name, affiliation, and relevant academic information</li>
+          <li><b>CV/Resume</b></li>
+          <li><b>Paper ID</b>: Accepted or submitted to our workshop</li>
+          <li><b>Statement of Interest</b>: A brief paragraph explaining how this opportunity will benefit your research and career</li>
+          <li><b>Attendance Confirmation</b>: A clear statement confirming that you will attend in person</li>
+        </ul>
+        <h3>Important Notes</h3>
+        <ul>
+          <li>Awardees will be announced on September 3, 2025</li>
+          <li>If you have already registered, please submit your receipt, and we will provide further instructions</li>
+          <li>Travel and accommodations must be arranged independently; this grant covers registration only</li>
+        </ul>
+        <p>
+          This opportunity is highly competitive, and we encourage all eligible students to apply early.
+        </p>
+      </div>
+    </section>
+    <!-- End Grant -->
 
     <!-- ======= Organizers ======= -->
     <section id="organizers">
