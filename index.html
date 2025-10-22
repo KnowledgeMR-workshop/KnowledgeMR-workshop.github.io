@@ -234,13 +234,13 @@
               </tr>
               <tr>
                 <td class="time">3:10 – 3:20</td>
-                <td>Oral Paper 1</td>
+                <td>Contributed Talk 1</td>
                 <td>Enxin Song (UCSD &amp; ZJU)</td>
                 <td>Video-MMLU: A Massive Multi-Discipline Lecture Understanding Benchmark</td>
               </tr>
               <tr>
                 <td class="time">3:20 – 3:30</td>
-                <td>Oral Paper 2</td>
+                <td>Contributed Talk 2</td>
                 <td>Ziqi Huang (NTU)</td>
                 <td>VChain: Chain-of-Visual-Thought for Reasoning in Video Generation</td>
               </tr>
@@ -262,13 +262,13 @@
               </tr>
               <tr>
                 <td class="time">4:40 – 4:50</td>
-                <td>Oral Paper 3</td>
+                <td>Contributed Talk 3</td>
                 <td>Shoubin Yu (UNC)</td>
                 <td>SciVideoBench: Benchmarking Scientific Video Reasoning in Large Multimodal Models</td>
               </tr>
               <tr>
                 <td class="time">4:50 – 5:00</td>
-                <td>Oral Paper 4</td>
+                <td>Contributed Talk 4</td>
                 <td>Zeyuan Yang (UMass)</td>
                 <td>Machine Mental Imagery: Empower Multimodal Reasoning with Latent Visual Tokens</td>
               </tr>
@@ -773,7 +773,14 @@
             const authorsVal = item && item.content && item.content.authors ? item.content.authors.value : [];
             const authors = Array.isArray(authorsVal) ? authorsVal.join(', ') : (authorsVal || '');
             const li = document.createElement('li');
-            li.innerHTML = '<b>' + title + '</b><br>' + authors;
+            // Split title to handle awards separately (check if it contains <br><i>)
+            if (title.includes('<br><i>')) {
+              const parts = title.split('<br>');
+              const awardText = parts.slice(1).join('<br>').replace(/<i>/g, '<i style="color: #B8860B;">');
+              li.innerHTML = '<b>' + parts[0] + '</b><br>' + awardText + '<br>' + authors;
+            } else {
+              li.innerHTML = '<b>' + title + '</b><br>' + authors;
+            }
             list.appendChild(li);
             list.appendChild(document.createElement('br'));
           });

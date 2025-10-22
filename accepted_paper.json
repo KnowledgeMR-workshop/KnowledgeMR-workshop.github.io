@@ -199,7 +199,7 @@
       "forum": "sD4eeSouVA",
       "content": {
         "title": {
-          "value": "Video-MMLU: A Massive Multi-Discipline Lecture Understanding Benchmark"
+          "value": "Video-MMLU: A Massive Multi-Discipline Lecture Understanding Benchmark<br><i>🏆 Outstanding Paper Award (Benchmark Track)</i>"
         },
         "authors": {
           "value": [
@@ -2768,7 +2768,7 @@
       "forum": "ogCOSyJTeP",
       "content": {
         "title": {
-          "value": "SciVideoBench: Benchmarking Scientific Video Reasoning in Large Multimodal Models"
+          "value": "SciVideoBench: Benchmarking Scientific Video Reasoning in Large Multimodal Models<br><i>🏆 Best Paper Award (Benchmark Track)</i>"
         },
         "authors": {
           "value": [
@@ -3522,7 +3522,7 @@
       "forum": "bAFjHrJSUc",
       "content": {
         "title": {
-          "value": "VChain: Chain-of-Visual-Thought for Reasoning in Video Generation"
+          "value": "VChain: Chain-of-Visual-Thought for Reasoning in Video Generation<br><i>🏆 Outstanding Paper Award (Main Track)</i>"
         },
         "authors": {
           "value": [
@@ -3774,7 +3774,7 @@
       "forum": "fUmbrYIJ7T",
       "content": {
         "title": {
-          "value": "Machine Mental Imagery: Empower Multimodal Reasoning with Latent Visual Tokens"
+          "value": "Machine Mental Imagery: Empower Multimodal Reasoning with Latent Visual Tokens<br><i>🏆 Best Paper Award (Main Track)</i>"
         },
         "authors": {
           "value": [
