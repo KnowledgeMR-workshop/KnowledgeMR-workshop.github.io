@@ -112,6 +112,77 @@
       content: '▼';
     }
     #topic details > summary b { display: inline-block; }
+
+    #workshop-highlights {
+      padding: 30px 0 10px;
+    }
+    #workshop-highlights .highlights-panel {
+      background: linear-gradient(135deg, #fff8ef 0%, #ffffff 55%, #eef6ff 100%);
+      border: 1px solid rgba(0, 53, 107, 0.12);
+      border-radius: 18px;
+      box-shadow: 0 16px 40px rgba(0, 53, 107, 0.08);
+      padding: 32px;
+    }
+    #workshop-highlights .eyebrow {
+      display: inline-block;
+      margin-bottom: 14px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(197, 90, 17, 0.1);
+      color: #9a3f00;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    #workshop-highlights h3 {
+      margin-bottom: 14px;
+      color: #00356b;
+    }
+    #workshop-highlights p {
+      margin-bottom: 14px;
+      font-size: 17px;
+      line-height: 1.75;
+      color: #2f3136;
+    }
+    #workshop-highlights .highlights-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 14px;
+      margin: 22px 0 24px;
+    }
+    #workshop-highlights .highlight-stat {
+      background: rgba(255, 255, 255, 0.88);
+      border: 1px solid rgba(0, 53, 107, 0.08);
+      border-radius: 14px;
+      padding: 18px 16px;
+      min-height: 120px;
+    }
+    #workshop-highlights .highlight-stat strong {
+      display: block;
+      margin-bottom: 8px;
+      color: #c55a11;
+      font-size: 30px;
+      line-height: 1;
+    }
+    #workshop-highlights .highlight-stat span {
+      color: #4c5663;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+    @media (max-width: 991px) {
+      #workshop-highlights .highlights-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+    @media (max-width: 575px) {
+      #workshop-highlights .highlights-panel {
+        padding: 24px 20px;
+      }
+      #workshop-highlights .highlights-grid {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 
   <!-- =======================================================
@@ -191,6 +262,37 @@
       </div>
     </section>
     <!-- End About Section -->
+
+    <!-- ======= Workshop Highlights Section ======= -->
+    <section id="workshop-highlights">
+      <div class="container" data-aos="fade-up">
+        <div class="highlights-panel">
+          <span class="eyebrow">Workshop Highlights</span>
+          <h3>KnowledgeMR at ICCV 2025</h3>
+          <p>Our first edition of the KnowledgeMR workshop was held at ICCV 2025 in Honolulu, Hawaii, and achieved remarkable success. The audience remained highly engaged throughout the half-day program, with approximately <strong>400 attendees</strong> joining in person and online.</p>
+
+          <div class="highlights-grid">
+            <div class="highlight-stat">
+              <strong>~400</strong>
+              <span>Attendees participated across in-person and online formats.</span>
+            </div>
+            <div class="highlight-stat">
+              <strong>56</strong>
+              <span>Submissions were received across the main and benchmark tracks.</span>
+            </div>
+            <div class="highlight-stat">
+              <strong>33</strong>
+              <span>Papers were accepted, corresponding to a <strong>58.9%</strong> acceptance rate.</span>
+            </div>
+            <div class="highlight-stat">
+              <strong>13</strong>
+              <span>Student travel grants were awarded, each valued at <strong>$490</strong>.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- End Workshop Highlights Section -->
 
     <!-- ======= Schedule Section ======= -->
     <section id="schedule" style="padding-top: 20px;">
