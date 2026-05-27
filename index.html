@@ -215,6 +215,7 @@
           <li><a class="nav-link scrollto" href="#about">About</a></li>
           <!-- <li><a class="nav-link scrollto" href="#schedule">Schedule</a></li> -->
           <li><a class="nav-link scrollto" href="#topic">Topics</a></li>
+          <li><a class="nav-link scrollto" href="#accepted-paper">Accepted Papers</a></li>
           <li><a class="nav-link scrollto" href="#cfp">Call for Papers</a></li>
           <li><a class="nav-link scrollto" href="#speakers">Speakers</a></li>
           <li><a class="nav-link scrollto" href="#organizers">Organizers</a></li>
@@ -393,16 +394,18 @@
     </section>
     <!-- End Topics Section -->
 
-    <!-- ======= Accepted Papers (hidden until announced) =======
+    <!-- ======= Accepted Papers ======= -->
     <section id="accepted-paper" class="section-with-bg">
       <div class="container" data-aos="fade-up">
         <div class="section-header">
           <h2>Accepted Papers</h2>
         </div>
-        <p style="font-size: 18px; color: #555; text-align: center;">To be announced after the review process.</p>
+        <div id="poster-presentations">
+          <ul id="posterList"></ul>
+        </div>
       </div>
     </section>
-    End Accepted Papers -->
+    <!-- End Accepted Papers -->
 
     <!-- ======= Call For Papers ======= -->
     <section id="cfp">
@@ -608,6 +611,42 @@
   <!-- Template Main JS File -->
   <script src="assets/js/main.js" defer></script>
 
+  <!-- ======= Accepted Papers: load on page load ======= -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const list = document.getElementById('posterList');
+      if (!list) return;
+
+      fetch('accepted_paper.json')
+        .then(function (r) { return r.json(); })
+        .then(function (data) {
+          const notes = (data && data.notes) ? data.notes : [];
+          notes.sort(function (a, b) {
+            const ta = (a && a.content && a.content.title ? a.content.title.value : '') || '';
+            const tb = (b && b.content && b.content.title ? b.content.title.value : '') || '';
+            return ta.localeCompare(tb, undefined, { sensitivity: 'base' });
+          });
+          notes.forEach(function (item) {
+            const title = item && item.content && item.content.title ? (item.content.title.value || 'Untitled') : 'Untitled';
+            const authorsVal = item && item.content && item.content.authors ? item.content.authors.value : [];
+            const authors = Array.isArray(authorsVal) ? authorsVal.join(', ') : (authorsVal || '');
+            const li = document.createElement('li');
+            if (title.includes('<br><i>')) {
+              const parts = title.split('<br>');
+              const awardText = parts.slice(1).join('<br>').replace(/<i>/g, '<i style="color: #B8860B;">');
+              li.innerHTML = '<b>' + parts[0] + '</b><br>' + awardText + '<br>' + authors;
+            } else {
+              li.innerHTML = '<b>' + title + '</b><br>' + authors;
+            }
+            list.appendChild(li);
+            list.appendChild(document.createElement('br'));
+          });
+        })
+        .catch(function (err) {
+          console.error('Error loading accepted_paper.json:', err);
+        });
+    });
+  </script>
 
   <!-- ======= Lazy-load flag counter after full load to avoid blocking ======= -->
   <script>

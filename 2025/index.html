@@ -876,6 +876,11 @@
         .then(function (r) { return r.json(); })
         .then(function (data) {
           const notes = (data && data.notes) ? data.notes : [];
+          notes.sort(function (a, b) {
+            const ta = (a && a.content && a.content.title ? a.content.title.value : '') || '';
+            const tb = (b && b.content && b.content.title ? b.content.title.value : '') || '';
+            return ta.localeCompare(tb, undefined, { sensitivity: 'base' });
+          });
           notes.forEach(function (item) {
             const title = item && item.content && item.content.title ? (item.content.title.value || 'Untitled') : 'Untitled';
             const authorsVal = item && item.content && item.content.authors ? item.content.authors.value : [];

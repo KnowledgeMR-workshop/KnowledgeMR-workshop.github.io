@@ -1,0 +1,668 @@
+{
+  "notes": [
+    {
+      "content": {
+        "title": {
+          "value": "Hidden Clones: Exposing and Fixing Family Bias in Vision-Language Model Ensembles"
+        },
+        "authors": {
+          "value": [
+            "Zacharie Bugaud"
+          ]
+        },
+        "authorids": {
+          "value": [
+            "~Zacharie_Bugaud1"
+          ]
+        }
+      }
+    },
+    {
+      "content": {
+        "title": {
+          "value": "CodePlot-CoT: Mathematical Visual Reasoning by Thinking with Code-Driven Images"
+        },
+        "authors": {
+          "value": [
+            "Chengqi Duan",
+            "Kaiyue Sun",
+            "Rongyao Fang",
+            "Manyuan Zhang",
+            "Yan Feng",
+            "Ying Luo",
+            "Yufang Liu",
+            "Ke Wang",
+            "Peng Pei",
+            "Xunliang Cai",
+            "Hongsheng Li",
+            "Yi Ma",
+            "Xihui Liu"
+          ]
+        },
+        "authorids": {
+          "value": [
+            "~Chengqi_Duan1",
+            "~Kaiyue_Sun1",
+            "~Rongyao_Fang1",
+            "~Manyuan_Zhang1",
+            "~Yan_Feng4",
+            "~Ying_Luo3",
+            "~Yufang_Liu1",
+            "~Ke_Wang18",
+            "~Peng_Pei1",
+            "~Xunliang_Cai1",
+            "~Hongsheng_Li3",
+            "~Yi_Ma4",
+            "~Xihui_Liu1"
+          ]
+        }
+      }
+    },
+    {
+      "content": {
+        "title": {
+          "value": "Towards Responsible Multimodal Medical Reasoning via Context-Aligned Vision-Language Models"
+        },
+        "authors": {
+          "value": [
+            "sumra khan",
+            "Sagar Chhabriya",
+            "Aizan Zafar",
+            "Sheeraz Arif",
+            "Amgad Muneer",
+            "Anas Zafar",
+            "Shaina Raza",
+            "Rizwan Qureshi"
+          ]
+        },
+        "authorids": {
+          "value": [
+            "~sumra_khan1",
+            "~Sagar_Chhabriya1",
+            "~Aizan_Zafar1",
+            "~Sheeraz_Arif1",
+            "~Amgad_Muneer1",
+            "~Anas_Zafar1",
+            "~Shaina_Raza2",
+            "~Rizwan_Qureshi1"
+          ]
+        }
+      }
+    },
+    {
+      "content": {
+        "title": {
+          "value": "Omni-Modal Dissonance Benchmark: Systematically Breaking Modality Consensus to Probe Robustness and Calibrated Abstention"
+        },
+        "authors": {
+          "value": [
+            "Zabir Al Nazi",
+            "Shubhashis Roy Dipta",
+            "Md Rizwan Parvez"
+          ]
+        },
+        "authorids": {
+          "value": [
+            "~Zabir_Al_Nazi1",
+            "~Shubhashis_Roy_Dipta1",
+            "~Md_Rizwan_Parvez1"
+          ]
+        }
+      }
+    },
+    {
+      "content": {
+        "title": {
+          "value": "ReAG: Reasoning-Augmented Generation for Knowledge-based Visual Question Answering"
+        },
+        "authors": {
+          "value": [
+            "Alberto Compagnoni",
+            "Marco Morini",
+            "Sara Sarto",
+            "Federico Cocchi",
+            "Davide Caffagni",
+            "Marcella Cornia",
+            "Lorenzo Baraldi",
+            "Rita Cucchiara"
+          ]
+        },
+        "authorids": {
+          "value": [
+            "~Alberto_Compagnoni1",
+            "~Marco_Morini1",
+            "~Sara_Sarto1",
+            "~Federico_Cocchi1",
+            "~Davide_Caffagni1",
+            "~Marcella_Cornia1",
+            "~Lorenzo_Baraldi1",
+            "~Rita_Cucchiara1"
+          ]
+        }
+      }
+    },
+    {
+      "content": {
+        "title": {
+          "value": "ASTER: Latent Pseudo-Anomaly Generation for Unsupervised Time-Series Anomaly Detection"
+        },
+        "authors": {
+          "value": [
+            "Romain Hermary",
+            "Samet Hicsonmez",
+            "Dan Pineau",
+            "Abd El Rahman Shabayek",
+            "Nesryne Mejri",
+            "Djamila Aouada"
+          ]
+        },
+        "authorids": {
+          "value": [
+            "~Romain_Hermary1",
+            "~Samet_Hicsonmez1",
+            "~Dan_Pineau1",
+            "~Abd_El_Rahman_Shabayek1",
+            "~Nesryne_Mejri1",
+            "~Djamila_Aouada1"
+          ]
+        }
+      }
+    },
+    {
+      "content": {
+        "title": {
+          "value": "KIRA: Knowledge-Intensive Image Retrieval and Reasoning Architecture for Specialized Visual Domains"
+        },
+        "authors": {
+          "value": [
+            "Parthaw Goswami",
+            "Jaynto Goswami Deep"
+          ]
+        },
+        "authorids": {
+          "value": [
+            "~Parthaw_Goswami1",
+            "~Jaynto_Goswami_Deep1"
+          ]
+        }
+      }
+    },
+    {
+      "content": {
+        "title": {
+          "value": "Concept Cues Reshape Human Verification in Bongard-LOGO Visual Reasoning"
+        },
+        "authors": {
+          "value": [
+            "Mohit Vaishnav",
+            "Tanel Tammet"
+          ]
+        },
+        "authorids": {
+          "value": [
+            "~Mohit_Vaishnav1",
+            "~Tanel_Tammet1"
+          ]
+        }
+      }
+    },
+    {
+      "content": {
+        "title": {
+          "value": "Where Should Knowledge Enter? A Layered Framework for Knowledge Infusion in Multimodal Iterative Generative Models"
+        },
+        "authors": {
+          "value": [
+            "Renjith Prasad Kaippilly Mana",
+            "Chathurangi Shyalika",
+            "Anushka Prashant Pawar",
+            "Aahan Rathod",
+            "Amit Sheth"
+          ]
+        },
+        "authorids": {
+          "value": [
+            "~Renjith_Prasad_Kaippilly_Mana1",
+            "~Chathurangi_Shyalika2",
+            "~Anushka_Prashant_Pawar1",
+            "~Aahan_Rathod1",
+            "~Amit_Sheth2"
+          ]
+        }
+      }
+    },
+    {
+      "content": {
+        "title": {
+          "value": "T2I-ReasonBench: Benchmarking Reasoning-Informed Text-to-Image Generation"
+        },
+        "authors": {
+          "value": [
+            "Kaiyue Sun",
+            "Rongyao Fang",
+            "Chengqi Duan",
+            "Xian Liu",
+            "Aoxue Li",
+            "Xihui Liu"
+          ]
+        },
+        "authorids": {
+          "value": [
+            "~Kaiyue_Sun1",
+            "~Rongyao_Fang1",
+            "~Chengqi_Duan1",
+            "~Xian_Liu1",
+            "~Aoxue_Li2",
+            "~Xihui_Liu1"
+          ]
+        }
+      }
+    },
+    {
+      "content": {
+        "title": {
+          "value": "Medical thinking with multiple images"
+        },
+        "authors": {
+          "value": [
+            "Zonghai Yao",
+            "Benlu Wang",
+            "Yifan Zhang",
+            "Junda Wang",
+            "Iris Xia",
+            "Zhipeng Tang",
+            "Shuo Han",
+            "Feiyun Ouyang",
+            "Zhichao Yang",
+            "Arman Cohan",
+            "hong yu"
+          ]
+        },
+        "authorids": {
+          "value": [
+            "~Zonghai_Yao1",
+            "~Benlu_Wang1",
+            "~Yifan_Zhang52",
+            "~Junda_Wang1",
+            "~Iris_Xia1",
+            "~Zhipeng_Tang1",
+            "~Shuo_Han7",
+            "~Feiyun_Ouyang1",
+            "~Zhichao_Yang2",
+            "~Arman_Cohan1",
+            "~hong_yu1"
+          ]
+        }
+      }
+    },
+    {
+      "content": {
+        "title": {
+          "value": "ViTaB-A: Evaluating Multimodal Large Language Models on Visual Table Attribution"
+        },
+        "authors": {
+          "value": [
+            "Yahia Alqurnawi",
+            "Preetom Biswas",
+            "Anmol Rao",
+            "Tejas Anvekar",
+            "Chitta Baral",
+            "Vivek Gupta"
+          ]
+        },
+        "authorids": {
+          "value": [
+            "~Yahia_Alqurnawi1",
+            "~Preetom_Biswas1",
+            "~Anmol_Rao1",
+            "~Tejas_Anvekar1",
+            "~Chitta_Baral1",
+            "~Vivek_Gupta2"
+          ]
+        }
+      }
+    },
+    {
+      "content": {
+        "title": {
+          "value": "Does Visual Token Pruning Improve Calibration? An Empirical Study on Confidence in MLLMs"
+        },
+        "authors": {
+          "value": [
+            "Kaizhen Tan"
+          ]
+        },
+        "authorids": {
+          "value": [
+            "~Kaizhen_Tan1"
+          ]
+        }
+      }
+    },
+    {
+      "content": {
+        "title": {
+          "value": "SceneCritic: A Symbolic Evaluator for 3D Indoor Scene Synthesis"
+        },
+        "authors": {
+          "value": [
+            "Kathakoli Sengupta",
+            "Kai Ao",
+            "Paola Cascante-Bonilla"
+          ]
+        },
+        "authorids": {
+          "value": [
+            "~Kathakoli_Sengupta1",
+            "~Kai_Ao1",
+            "~Paola_Cascante-Bonilla1"
+          ]
+        }
+      }
+    },
+    {
+      "content": {
+        "title": {
+          "value": "Bridging Semantic and Structural Manifolds: Zero-Shot Single-Temporal Anomaly Detection in Remote Sensing"
+        },
+        "authors": {
+          "value": [
+            "YunTung Chu",
+            "SHIH-CHIH LIN",
+            "Wei-Chieh Sun",
+            "Jia-Xian Jian",
+            "Fang-Yi Lin"
+          ]
+        },
+        "authorids": {
+          "value": [
+            "~YunTung_Chu1",
+            "~SHIH-CHIH_LIN1",
+            "~Wei-Chieh_Sun2",
+            "~Jia-Xian_Jian1",
+            "~Fang-Yi_Lin1"
+          ]
+        }
+      }
+    },
+    {
+      "content": {
+        "title": {
+          "value": "PDFPARSE: A Benchmark for Grounded Multimodal Reasoning over Professional PDF Documents"
+        },
+        "authors": {
+          "value": [
+            "Sushant Mehta"
+          ]
+        },
+        "authorids": {
+          "value": [
+            "~Sushant_Mehta1"
+          ]
+        }
+      }
+    },
+    {
+      "content": {
+        "title": {
+          "value": "VideoNet: A Large-Scale Dataset for Domain-Specific Action Recognition"
+        },
+        "authors": {
+          "value": [
+            "Tanush Yadav",
+            "Mohammadreza Salehi",
+            "Jae Sung Park",
+            "Vivek Ramanujan",
+            "Hannaneh Hajishirzi",
+            "Yejin Choi",
+            "Ali Farhadi",
+            "Rohun Tripathi",
+            "Ranjay Krishna"
+          ]
+        },
+        "authorids": {
+          "value": [
+            "~Tanush_Yadav1",
+            "~Mohammadreza_Salehi3",
+            "~Jae_Sung_Park2",
+            "~Vivek_Ramanujan1",
+            "~Hannaneh_Hajishirzi1",
+            "~Yejin_Choi1",
+            "~Ali_Farhadi3",
+            "~Rohun_Tripathi1",
+            "~Ranjay_Krishna1"
+          ]
+        }
+      }
+    },
+    {
+      "content": {
+        "title": {
+          "value": "DesignAgent: Interactive Object-Level Indoor 3D Scene Editing via Multimodal Agentic Reasoning"
+        },
+        "authors": {
+          "value": [
+            "Xiujin Liu",
+            "Tianyu Yang",
+            "Che Chen",
+            "Yilun Zhao",
+            "Xiangliang Zhang"
+          ]
+        },
+        "authorids": {
+          "value": [
+            "~Xiujin_Liu1",
+            "~Tianyu_Yang6",
+            "~Che_Chen1",
+            "~Yilun_Zhao1",
+            "~Xiangliang_Zhang1"
+          ]
+        }
+      }
+    },
+    {
+      "content": {
+        "title": {
+          "value": "A Diagnostic Study of Region-Based Representations in Multimodal LLMs"
+        },
+        "authors": {
+          "value": [
+            "Ji Li",
+            "Shengcao Cao",
+            "Yu-Xiong Wang"
+          ]
+        },
+        "authorids": {
+          "value": [
+            "~Ji_Li6",
+            "~Shengcao_Cao1",
+            "~Yu-Xiong_Wang1"
+          ]
+        }
+      }
+    },
+    {
+      "content": {
+        "title": {
+          "value": "The CoT Paradox: Forced Multi-Step Reasoning Hurts 7B-Scale VLM Accuracy Without Evidence of Improved Visual Sensitivity"
+        },
+        "authors": {
+          "value": [
+            "Yanhang Li",
+            "Zhichao Fan",
+            "Zexin Zhuang"
+          ]
+        },
+        "authorids": {
+          "value": [
+            "~Yanhang_Li1",
+            "~Zhichao_Fan3",
+            "~Zexin_Zhuang1"
+          ]
+        }
+      }
+    },
+    {
+      "content": {
+        "title": {
+          "value": "Content-Insensitive Visual Prompts Masquerade as Knowledge Conditioning in Medical VQA"
+        },
+        "authors": {
+          "value": [
+            "Zhichao Fan"
+          ]
+        },
+        "authorids": {
+          "value": [
+            "~Zhichao_Fan3"
+          ]
+        }
+      }
+    },
+    {
+      "content": {
+        "title": {
+          "value": "Knowledge as Energy: Physical and Semantic Training Constraints for Fine-Grained Captioning and Recognition in Large Vision-Language Models"
+        },
+        "authors": {
+          "value": [
+            "Nguyen Xuan Nam",
+            "Hidetomo Sakaino",
+            "Thao Nguyen Phuong",
+            "Nguyen Hoang Bach"
+          ]
+        },
+        "authorids": {
+          "value": [
+            "~Nguyen_Xuan_Nam1",
+            "~Hidetomo_Sakaino3",
+            "~Thao_Nguyen_Phuong1",
+            "~Nguyen_Hoang_Bach1"
+          ]
+        }
+      }
+    },
+    {
+      "content": {
+        "title": {
+          "value": "Think Before You Trust: Single-Call Visual Verification for Image-Text Conflict Under Retrieved Context"
+        },
+        "authors": {
+          "value": [
+            "Safwan Nabeel",
+            "Sadam Al-Azani",
+            "Mohanad Mohamed",
+            "Qasim Al Mahfoodh"
+          ]
+        },
+        "authorids": {
+          "value": [
+            "~Safwan_Nabeel1",
+            "~Sadam_Al-Azani1",
+            "~Mohanad_Mohamed1",
+            "~Qasim_Mustafa_Al_Mahfoodh1"
+          ]
+        }
+      }
+    },
+    {
+      "content": {
+        "title": {
+          "value": "Do LVLMs Really Know What They See? ConceptBench: Evaluating the Implicit Conceptual Knowledge of Large Vision Language Models"
+        },
+        "authors": {
+          "value": [
+            "Myo Thiha",
+            "Guanlin Li",
+            "Praboda Rajapaksha",
+            "Noel Crespi",
+            "Charles Henri Puaux",
+            "Patrick Constant",
+            "Chantri Polprasert"
+          ]
+        },
+        "authorids": {
+          "value": [
+            "~Myo_Thiha1",
+            "~Guanlin_Li6",
+            "~Praboda_Rajapaksha1",
+            "~Noel_Crespi1",
+            "~Charles_Henri_Puaux1",
+            "~Patrick_Constant2",
+            "~Chantri_Polprasert1"
+          ]
+        }
+      }
+    },
+    {
+      "content": {
+        "title": {
+          "value": "CORAL: Towards Autonomous Multi-Agent Evolution for Open-Ended Discovery"
+        },
+        "authors": {
+          "value": [
+            "Ao Qu",
+            "Han Zheng",
+            "Zijian Zhou",
+            "Yihao Yan",
+            "Yihong Tang",
+            "Shao Yong Ong",
+            "Fenglu Hong",
+            "Kaichen Zhou",
+            "Chonghe Jiang",
+            "Minwei Kong",
+            "Jiacheng Zhu",
+            "Xuan Jiang",
+            "Sirui Li",
+            "Cathy Wu",
+            "Bryan Kian Hsiang Low",
+            "Jinhua Zhao",
+            "Paul Pu Liang"
+          ]
+        },
+        "authorids": {
+          "value": [
+            "Ao Qu",
+            "Han Zheng",
+            "Zijian Zhou",
+            "Yihao Yan",
+            "Yihong Tang",
+            "Shao Yong Ong",
+            "Fenglu Hong",
+            "Kaichen Zhou",
+            "Chonghe Jiang",
+            "Minwei Kong",
+            "Jiacheng Zhu",
+            "Xuan Jiang",
+            "Sirui Li",
+            "Cathy Wu",
+            "Bryan Kian Hsiang Low",
+            "Jinhua Zhao",
+            "Paul Pu Liang"
+          ]
+        }
+      }
+    },
+    {
+      "content": {
+        "title": {
+          "value": "Ablate-to-Validate: Are Vision-Language Models Really Using Continuous Thought Tokens?"
+        },
+        "authors": {
+          "value": [
+            "Tianyi Zhang",
+            "Mahtab Bigverdi",
+            "Ranjay Krishna"
+          ]
+        },
+        "authorids": {
+          "value": [
+            "Tianyi Zhang",
+            "Mahtab Bigverdi",
+            "Ranjay Krishna"
+          ]
+        }
+      }
+    }
+  ]
+}
