@@ -79,11 +79,11 @@
     /* Grey variant for specific short breaks */
     .schedule-table tr.gray-break td  { background-color: #f8f9fa !important; }
 
-    /* Four speakers per row on larger screens (yields 4 + 3 for 7 profiles) */
+    /* Five speakers per row on larger screens */
     @media (min-width: 768px) {
       #speakers .speaker-col-5 {
-        flex: 0 0 25%;
-        max-width: 25%;
+        flex: 0 0 20%;
+        max-width: 20%;
       }
     }
 
@@ -213,7 +213,7 @@
         <ul>
           <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
           <li><a class="nav-link scrollto" href="#about">About</a></li>
-          <!-- <li><a class="nav-link scrollto" href="#schedule">Schedule</a></li> -->
+          <li><a class="nav-link scrollto" href="#schedule">Schedule</a></li>
           <li><a class="nav-link scrollto" href="#topic">Topics</a></li>
           <li><a class="nav-link scrollto" href="#accepted-paper">Accepted Papers</a></li>
           <li><a class="nav-link scrollto" href="#cfp">Call for Papers</a></li>
@@ -236,7 +236,9 @@
     <div class="hero-container" data-aos="zoom-in" data-aos-delay="200">
       <h1 class="mb-4 pb-0" style="text-transform: none;">
         2nd Workshop on Knowledge-Intensive Multimodal Reasoning<br>
-        June 4 Morning, CVPR 2026, Denver, USA
+        CVPR 2026, Denver, USA<br><br>
+        June 4 Morning<br>
+        Room 704/706
       </h1>
       <!--
       <div class="social-links" style="margin-top: 25px;">
@@ -267,17 +269,84 @@
     </section>
     <!-- End About Section -->
 
-    <!-- ======= Schedule Section (hidden until announced) =======
+    <!-- ======= Schedule Section ======= -->
     <section id="schedule" style="padding-top: 20px;">
       <div class="container" data-aos="fade-up">
         <div class="section-header">
           <h2>Schedule</h2>
         </div>
 
-        <p style="font-size: 18px; color: #555; text-align: center;">To be announced.</p>
+        <div class="table-responsive">
+          <table class="schedule-table table align-middle">
+            <thead>
+              <tr>
+                <th>Time&nbsp;(MDT)</th>
+                <th>Session</th>
+                <th>Speaker</th>
+                <th>Talk&nbsp;Title</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="opening-row">
+                <td class="time">7:50 – 8:00</td>
+                <td colspan="3">Opening Remarks</td>
+              </tr>
+              <tr>
+                <td class="time">8:00 – 8:15</td>
+                <td>Contributed Talk 1</td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td class="time">8:15 – 8:30</td>
+                <td>Contributed Talk 2</td>
+                <td></td>
+                <td></td>
+              </tr>
+              <tr>
+                <td class="time">8:30 – 9:00</td>
+                <td>Invited Talk&nbsp;1</td>
+                <td>Biwei Huang (UC San Diego)</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td class="time">9:00 – 9:40</td>
+                <td>Invited Talk&nbsp;2</td>
+                <td>Xin (Eric) Wang (UCSB)</td>
+                <td></td>
+              </tr>
+              <tr class="poster-row">
+                <td class="time">9:40 – 10:30</td>
+                <td colspan="3">Poster Session</td>
+              </tr>
+              <tr>
+                <td class="time">10:30 – 11:00</td>
+                <td>Invited Talk&nbsp;3</td>
+                <td>Paul Liang (MIT)</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td class="time">11:00 – 11:40</td>
+                <td>Invited Talk&nbsp;4</td>
+                <td>Jiatao Gu (UPenn &amp; Apple)</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td class="time">11:40 – 12:20</td>
+                <td>Invited Talk&nbsp;5</td>
+                <td>Mengdi Wang (Princeton)</td>
+                <td></td>
+              </tr>
+              <tr class="closing-row">
+                <td class="time">12:20 – 12:30</td>
+                <td colspan="3">Paper Award &amp; Closing Remarks</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </section>
-    End Schedule Section -->
+    <!-- End Schedule Section -->
 
     
 
@@ -297,6 +366,15 @@
                    loading="lazy" decoding="async" width="320" height="320" style="height:auto">
               <br><a href="https://jiataogu.me/" style="font-size: 1.2em; color: #00356B;">Jiatao Gu</a></br>
               <p>UPenn &amp; Apple</p>
+            </div>
+          </div>
+
+          <div class="speaker-col-5 col-sm-4 col-6">
+            <div class="speaker" data-aos="fade-up" data-aos-delay="200" style="text-align: center;">
+              <img src="assets/img/organizers/speaker/biwei.jpeg" alt="Biwei Huang" class="img-fluid"
+                   loading="lazy" decoding="async" width="320" height="320" style="height:auto">
+              <br><a href="https://biweihuang.com/" style="font-size: 1.2em; color: #00356B;">Biwei Huang</a></br>
+              <p>UC San Diego</p>
             </div>
           </div>
 
