@@ -545,29 +545,6 @@
     {
       "content": {
         "title": {
-          "value": "Think Before You Trust: Single-Call Visual Verification for Image-Text Conflict Under Retrieved Context"
-        },
-        "authors": {
-          "value": [
-            "Safwan Nabeel",
-            "Sadam Al-Azani",
-            "Mohanad Mohamed",
-            "Qasim Al Mahfoodh"
-          ]
-        },
-        "authorids": {
-          "value": [
-            "~Safwan_Nabeel1",
-            "~Sadam_Al-Azani1",
-            "~Mohanad_Mohamed1",
-            "~Qasim_Mustafa_Al_Mahfoodh1"
-          ]
-        }
-      }
-    },
-    {
-      "content": {
-        "title": {
           "value": "Do LVLMs Really Know What They See? ConceptBench: Evaluating the Implicit Conceptual Knowledge of Large Vision Language Models"
         },
         "authors": {
