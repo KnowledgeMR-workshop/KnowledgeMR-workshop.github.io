@@ -20,7 +20,7 @@
     {
       "content": {
         "title": {
-          "value": "CodePlot-CoT: Mathematical Visual Reasoning by Thinking with Code-Driven Images"
+          "value": "CodePlot-CoT: Mathematical Visual Reasoning by Thinking with Code-Driven Images<br><i>🏆 Best Paper Award (Main Track)</i>"
         },
         "authors": {
           "value": [
@@ -405,7 +405,7 @@
     {
       "content": {
         "title": {
-          "value": "VideoNet: A Large-Scale Dataset for Domain-Specific Action Recognition"
+          "value": "VideoNet: A Large-Scale Dataset for Domain-Specific Action Recognition<br><i>🏆 Best Paper Award (Dataset Track)</i>"
         },
         "authors": {
           "value": [
